@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/characterSelectionYeffer.unity
     guid: ffc3b30ae99d0af459c796712be1e39e
+  - enabled: 1
+    path: Assets/Scenes/Fight.unity
+    guid: 9393c568d1474b147b65a1150e7d9841
   m_configObjects: {}

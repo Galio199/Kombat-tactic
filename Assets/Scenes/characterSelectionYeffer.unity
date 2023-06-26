@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -956,7 +956,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 766560258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd4ce913fba1524e94adfd191c245f0, type: 3}
+  m_Script: {fileID: 11500000, guid: a42a125611f6f7e47b35dbdf7d7af6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   idName: 1
@@ -1453,7 +1453,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1421761103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87716c61e6682943add0a2d9016715c, type: 3}
+  m_Script: {fileID: 11500000, guid: a42a125611f6f7e47b35dbdf7d7af6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   idName: 2
