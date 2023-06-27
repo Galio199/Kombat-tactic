@@ -9,6 +9,7 @@ public class Fighter : MonoBehaviour
     public string idName;
     public bool selectedCharacter;
     public GameObject character;
+    public GameObject[] actions;
 
     private void Awake()
     {

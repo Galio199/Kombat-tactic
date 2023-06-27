@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CombatManager : MonoBehaviour
+public class SelectionManager : MonoBehaviour
 {
     public Fighter[] fighters;
     private int fighterIndex;

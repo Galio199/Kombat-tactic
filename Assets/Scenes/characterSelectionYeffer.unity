@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 1684224826}
   - component: {fileID: 1684224825}
   m_Layer: 0
-  m_Name: CombatManager
+  m_Name: SelectionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
