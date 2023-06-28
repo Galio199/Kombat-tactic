@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 766560260}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,6 +962,7 @@ MonoBehaviour:
   idName: 1
   selectedCharacter: 0
   character: {fileID: 0}
+  actions: []
 --- !u!1 &768615847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1777,7 @@ GameObject:
   - component: {fileID: 1421761105}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1811,6 +1812,7 @@ MonoBehaviour:
   idName: 2
   selectedCharacter: 0
   character: {fileID: 0}
+  actions: []
 --- !u!1 &1684224824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,7 +1842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76c141bdf68e7849bb3335c2a6c2dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fighters:
+  players:
   - {fileID: 766560260}
   - {fileID: 1421761105}
 --- !u!4 &1684224826
