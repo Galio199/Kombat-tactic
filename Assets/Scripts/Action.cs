@@ -1,96 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class Action : MonoBehaviour
+public abstract class Action : MonoBehaviour
 {
-    public int idAction;
-    public bool isSelected;
-    public Vector3 intialPosition;
-    private int idSelection;
+    public string ActionName;
+    [SerializeField] private int priority;
+    public int cooldown;
+    [SerializeField] private int damage = 0;
+    [SerializeField] private string effect = "";
 
-    //action features
-    public float damage;
-    public float coolDown;
-    public string action;
-
-    //text and Images fields
-    public TextMeshProUGUI damageTextField;
-    public TextMeshProUGUI coolDownTextField;
-    public TextMeshProUGUI actionTextField;
-    public Image image;
-
-    //Spawns selected actions
-    //public RectTransform[] spawns;
-    public static Vector3[] positionSelectActions;
-
-
-    void Start()
+    protected Character myCharacter;
+    protected Character oponentCharacter;
+    public int GetPriotiy()
     {
-        damageTextField.text = damage.ToString();
-        coolDownTextField.text = coolDown.ToString();
-        actionTextField.text = action;
-        GameObject[] spawnsObjects = GameObject.FindGameObjectsWithTag("SelectedAction");
-        Debug.Log(spawnsObjects.Length); 
-        //for (int i = 0; i < spawnsObjects.Length; i++)
-        //{
-        //    positionSelectActions[i] = spawnsObjects[i].GetComponent<RectTransform>().position;
-        //}
+        return this.priority;
     }
 
-    //public void PointerClick()
-    //{
-    //    if (GameManager.selectedActions < GameManager.maxActions || isSelected == true)
-    //    {
-            
-    //        if (isSelected == false)
-    //        {
-    //            Debug.Log("Cliked" + this.idAction);
+    public int GetDamage()
+    {
+        return this.damage;
+    }
 
-    //            idSelection = GameManager.selectedActions;
+    public string GetEffect()
+    {
+        return this.effect;
+    }
 
-    //            //Ubicar en las respectivas casillas de acciones seleccionadas
-    //            //RectTransform rectTransform = spawns[idSelection];
-    //            //this.GetComponent<RectTransform>().position = rectTransform.position;
-    //            this.GetComponent<RectTransform>().position = positionSelectActions[idSelection];
+    //Agregar las referencias de los personajes
+    public void SetCharacters()
+    {
+        this.myCharacter = GetComponentInParent<Character>();
+        this.oponentCharacter = myCharacter.oponent;
 
-    //            //Marcar acción seleccionada
-    //            isSelected = true;
+    }
 
+    public abstract void execute();
 
-    //            //Sumar una acción
-    //            GameManager.selectedActions += 1;
-
-    //            Debug.Log("La aaaccion esta " + isSelected + " y hay " + GameManager.selectedActions + "acciones elegidas");
-    //        }
-    //        //else
-    //        //{
-    //        //    //Deseleccionar casillas
-    //        //    isSelected = false;
-
-    //        //    //Moverlas a la posición inicial
-    //        //    this.GetComponent<RectTransform>().position = intialPosition;
-
-    //        //    //Restar una accion seleccionada
-    //        //    //GameManager.selectedActions = idSelection;
-    //        //    GameManager.selectedActions -= 1;
-
-    //        //    //action.transform.SetParent(panel.transform, true);
-    //        //    Debug.Log("La aaaccion esta " + isSelected + " y hay " + GameManager.selectedActions + "acciones elegidas");
-    //        //    //Debug.Log("Ya estan las 3 accciones elegidas");
-    //        //}
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Acciones elegidas");
-    //    }
-    //}
-
-    //public void RemoveCard()
-    //{
-    //    this.GetComponent<RectTransform>().position = intialPosition;
-    //    GameManager.selectedActions =0;
-    //}
 }
