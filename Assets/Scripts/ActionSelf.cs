@@ -7,15 +7,15 @@ public class ActionSelf : Action
     //Enum que representa el tipo de accion autoinflinjida, es decir, cuando se proteje, bloquea o potencia su daño
     public enum ActionType
     {
-        PROTECT, BLOCK, POWER
+        NONE, PROTECT, BLOCK, ENHANCE
     }
 
-    [SerializeField] private ActionType guardType;
+    [Header("Action")]
+    [SerializeField] private ActionType actionType;
 
     public override void execute()
     {
-        SetCharacters();
-        switch (this.guardType)
+        switch (this.actionType)
         {
             case ActionType.PROTECT:
                 myCharacter.guardChange = 10;
@@ -23,7 +23,7 @@ public class ActionSelf : Action
             case ActionType.BLOCK:
                 myCharacter.guardChange = 100;
                 break;
-            case ActionType.POWER:
+            case ActionType.ENHANCE:
                 myCharacter.damageChange = 10;
                 break;
 

@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ActionMove : Action
 {
+    [Header("Direction")]
     [SerializeField] private Vector2 direction;
+
+    [Header("Settings")]
+    [SerializeField] private float cellDistance = 1f;
     [SerializeField] private float speed = 2f;
-    private Vector2 pointMove;
     [SerializeField] private Vector2 offsetPointMove = new Vector2(0f,0.5f);
     [SerializeField] private LayerMask obstacles;
     [SerializeField] private float radius = 0.4f;
 
+    private Vector2 pointMove;
+
     public override void execute()
     {
-        SetCharacters();
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
         pointMove = myCharacter.transform.position;
+        direction *= cellDistance;
         pointMove += direction;
 
         //Comprobar si la casilla esta ocupada por otro jugador o esta fuera del mapa

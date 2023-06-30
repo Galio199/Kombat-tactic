@@ -5,16 +5,20 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public string CharacterName;
+
+    [Header("Stats")]
     public int health=100;
     public int priorityChange=0;
     public int damageChange=0;
     public int guardChange=0;
-    public Character oponent;
 
-    [SerializeField] protected Action[] actions;
+    [Header("Actions")]
+    [SerializeField] private Action[] actions;
+
+    private Character oponent;
 
     // Inicializar los valores de las estadisticas
-    public void RestarStats()
+    public void ResetStats()
     {
         this.health = 100;
         this.priorityChange = 0;
@@ -25,6 +29,25 @@ public class Character : MonoBehaviour
     public Action[] GetActions()
     {
         return actions;
+    }
+
+    public void SetOponent(Character oponent)
+    {
+        this.oponent = oponent;
+        SetCharactersInActions();
+    }
+
+    public Character GetOponent()
+    {
+        return oponent;
+    }
+
+    public void SetCharactersInActions()
+    {
+        foreach(Action action in actions)
+        {
+            action.SetCharacters();
+        }
     }
 
 }

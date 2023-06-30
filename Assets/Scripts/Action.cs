@@ -4,11 +4,15 @@ using UnityEngine;
 
 public abstract class Action : MonoBehaviour
 {
+    [Header("General")]
     public string ActionName;
     [SerializeField] private int priority;
     public int cooldown;
     [SerializeField] private int damage = 0;
     [SerializeField] private string effect = "";
+
+    [Header("Range Image")]
+    [SerializeField] public Texture2D image;
 
     protected Character myCharacter;
     protected Character oponentCharacter;
@@ -31,8 +35,7 @@ public abstract class Action : MonoBehaviour
     public void SetCharacters()
     {
         this.myCharacter = GetComponentInParent<Character>();
-        this.oponentCharacter = myCharacter.oponent;
-
+        this.oponentCharacter = myCharacter.GetOponent();
     }
 
     public abstract void execute();

@@ -10,18 +10,23 @@ public class ActionAttack : Action
         HUNTRESS, WARRIOR, WIZARD, NONE
     }
 
+    [Header("Range effect")]
     [SerializeField] private Vector2[] range;
-    [SerializeField] private Vector2 offsetPointMove = new Vector2(0f, 0.5f);
-    [SerializeField] private LayerMask character;
-    [SerializeField] private float radius = 0.4f;
-    private bool affects = false;
+
+    [Header("Special Attack")]
     [SerializeField] private bool special = false;
     [SerializeField] private SpecialAtacck specialAtacck = SpecialAtacck.NONE;
 
+    [Header("Settings")]
+    [SerializeField] private float cellDistance = 1f;
+    [SerializeField] private Vector2 offsetPointMove = new Vector2(0f, 0.5f);
+    [SerializeField] private LayerMask character;
+    [SerializeField] private float radius = 0.4f;
+
+    private bool affects = false;
 
     public override void execute()
     {
-        SetCharacters();
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
 
         //Aplicar el offset respecto a la posicion del jugador
@@ -29,8 +34,9 @@ public class ActionAttack : Action
         pointCharacter += offsetPointMove;
         foreach (Vector2 point in range)
         {
+            Vector2 pointRange = point * cellDistance;
             //Ajustar el rango con respecto a la posicion del jugador
-            Vector2 pointRange = point + pointCharacter;
+            pointRange += pointCharacter;
 
             //Comprobar si el enemigo esta en rango del ataque
             if (Physics2D.OverlapBox(pointRange, boxSize, 0f, character))
