@@ -18,12 +18,14 @@ public class ActionCard : MonoBehaviour
     //Posicion de la carta cuando es elegida
     public Vector3[] positionSelectedActionCards;
 
+    //Parametros de la carta de accion
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI coolDownText;
+    [SerializeField] private TextMeshProUGUI actionText;
+    [SerializeField] private Image attackArea;
+    [SerializeField] private Image image;
 
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI coolDownText;
-    public TextMeshProUGUI actionText;
-    public Image attackArea;
-    public Image image;
+    public Action action;
 
     void Start()
     {
@@ -79,5 +81,18 @@ public class ActionCard : MonoBehaviour
     public void InitialPosition()
     {
         this.GetComponent<RectTransform>().position = initialPosition;
+    }
+
+
+    //Poner parametros de la acción en la carta
+    public void SetParameters()
+    {
+        actionText.text = action.ActionName;
+        damageText.text = action.GetDamage().ToString();
+        coolDownText.text = action.cooldown.ToString();
+
+        //Convertir imagen de tipo Texture2D a Sprite y asignar a la carta de accion
+        Sprite imageSprite = Sprite.Create(action.image, new Rect(0, 0, action.image.width, action.image.height), Vector2.one * 0.5f);
+        attackArea.sprite = imageSprite;
     }
 }

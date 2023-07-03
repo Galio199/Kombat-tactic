@@ -10,17 +10,18 @@ public class GameManager : MonoBehaviour
 {
     public static int maxActions = 3;
     public static int selectedActions;
-    //public static int indexActions;
 
-    public GameObject[] players;
-    private int currentPlayerIndex = 0;
+    [SerializeField] private GameObject[] players;
+    [SerializeField] private int currentPlayerIndex = 0;
 
-    public RectTransform[] spawns;
+    [SerializeField] private RectTransform[] spawns;
 
-    public GameObject actionCardPrefab;
-    public int numInstances;
+    [SerializeField] private GameObject actionCardPrefab;
+    [SerializeField] private int numCards;
 
-    public RectTransform actionCardsContainer;
+    //[SerializeField] private RectTransform actionCardsContainer;
+    [SerializeField] private GameObject actionCardsContainer;
+    [SerializeField] private GameObject elegirAcciones;
 
     public static List<GameObject> temporaryActionCards;
 
@@ -84,8 +85,9 @@ public class GameManager : MonoBehaviour
         //Nueva ronda de seleccioon de acciones
         if (currentPlayerIndex == players.Length - 1)
         {
-            Debug.Log("Nueva ronda de seleccioon de acciones");
-            NewRound();
+            Debug.Log("Pasando a ejecutar acciones");
+            ExecuteActions();
+            //NewRound();
             //return;
         }
 
@@ -97,27 +99,30 @@ public class GameManager : MonoBehaviour
 
     private void InstantiateActionCards()
     {
-        for (int i = 0; i < numInstances; i++)
+        //Obtener personaje y acciones del personaje
+        GameObject character = players[currentPlayerIndex].GetComponent<PlayerController>().character;
+        Action[] actions = character.GetComponent<Character>().GetActions();
+
+        //Asignar cartas respectivas del personaje escogido al jugador
+        for (int i = 0; i < numCards; i++)
         {
+            //Instancear carta
             GameObject instanciaPrefab = Instantiate(actionCardPrefab);
+            //Posicionar carta y guardar posición de inicio
             instanciaPrefab.transform.SetParent(actionCardsContainer.transform, false);
             instanciaPrefab.GetComponent<RectTransform>().position = spawns[i].position;
             instanciaPrefab.GetComponent<ActionCard>().initialPosition = spawns[i].position;
 
-            //Obtener personaje y acciones del personaje
-            GameObject character = players[currentPlayerIndex].GetComponent<PlayerController>().character;
-            Action[] actions = character.GetComponent<Character>().GetActions();
+            //Asignar acción de la carta
+            instanciaPrefab.GetComponent<ActionCard>().action = actions[i];
 
-            instanciaPrefab.GetComponent<ActionCard>().actionText.text = actions[i].ActionName;
-            instanciaPrefab.GetComponent<ActionCard>().damageText.text = actions[i].GetDamage().ToString();
-            instanciaPrefab.GetComponent<ActionCard>().coolDownText.text = actions[i].cooldown.ToString();
+            //Modificar aspecto de la carta para que contenga los parametros de la accion
+            instanciaPrefab.GetComponent<ActionCard>().SetParameters();
 
-            //
-            Sprite imageSprite = Sprite.Create(actions[i].image, new Rect(0, 0, actions[i].image.width, actions[i].image.height), Vector2.one * 0.5f);
-            instanciaPrefab.GetComponent<ActionCard>().attackArea.sprite = imageSprite;
-            //Debug.Log("Carta Aniadida");
+            //Asignar carta a jugador
             players[currentPlayerIndex].GetComponent<PlayerController>().SetCard(instanciaPrefab);
         }
+        //Marcar que el jugador ya tiene cartas asignadas
         players[currentPlayerIndex].GetComponent<PlayerController>().instanceCards = true;
     }
 
@@ -163,13 +168,31 @@ public class GameManager : MonoBehaviour
 
     //Eliminar las acciones elegidas de cada jugador para la proximaa ronda
     //de seleccion de acciones
-    public void NewRound()
+    //public void NewRound()
+    //{
+    //    foreach (GameObject player in players)
+    //    {
+    //        player.GetComponent<PlayerController>().UnsetSelectedCard();
+    //    }
+
+    //}
+
+
+    public void ExecuteActions()
+    {
+        actionCardsContainer.SetActive(false);
+        elegirAcciones.SetActive(true);
+    }
+
+
+    public void ChooseActionsCards()
     {
         foreach (GameObject player in players)
         {
             player.GetComponent<PlayerController>().UnsetSelectedCard();
         }
-
+        actionCardsContainer.SetActive(true);
+        elegirAcciones.SetActive(false);
     }
 
 }
