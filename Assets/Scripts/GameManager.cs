@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 
 
+
 public class GameManager : MonoBehaviour
 {
     public static int maxActions = 3;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
         temporaryActionCards = new List<GameObject>();
     }
 
-    public void StartNextTurn()
+    public void StartNextTurnCardSelection()
     {
         //Reiniciar contador de acciones para el turno del jugador
         selectedActions = 0;
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
         players[currentPlayerIndex].GetComponent<PlayerController>().enabled = true;
     }
 
-    public void EndTurn()
+    public void EndTurnCardSelection()
     {
         //Asignar cartas de acciones al jugadoor actual
         SelectActionCards();
@@ -85,11 +86,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Nueva ronda de seleccioon de acciones");
             NewRound();
+            //return;
         }
 
 
         //Siguiente turno
-        StartNextTurn();
+        StartNextTurnCardSelection();
     }
 
 
@@ -101,7 +103,20 @@ public class GameManager : MonoBehaviour
             instanciaPrefab.transform.SetParent(actionCardsContainer.transform, false);
             instanciaPrefab.GetComponent<RectTransform>().position = spawns[i].position;
             instanciaPrefab.GetComponent<ActionCard>().initialPosition = spawns[i].position;
-            players[currentPlayerIndex].GetComponent<PlayerController>().SetCards(instanciaPrefab);
+
+            //Obtener personaje y acciones del personaje
+            GameObject character = players[currentPlayerIndex].GetComponent<PlayerController>().character;
+            Action[] actions = character.GetComponent<Character>().GetActions();
+
+            instanciaPrefab.GetComponent<ActionCard>().actionText.text = actions[i].ActionName;
+            instanciaPrefab.GetComponent<ActionCard>().damageText.text = actions[i].GetDamage().ToString();
+            instanciaPrefab.GetComponent<ActionCard>().coolDownText.text = actions[i].cooldown.ToString();
+
+            //
+            Sprite imageSprite = Sprite.Create(actions[i].image, new Rect(0, 0, actions[i].image.width, actions[i].image.height), Vector2.one * 0.5f);
+            instanciaPrefab.GetComponent<ActionCard>().attackArea.sprite = imageSprite;
+            //Debug.Log("Carta Aniadida");
+            players[currentPlayerIndex].GetComponent<PlayerController>().SetCard(instanciaPrefab);
         }
         players[currentPlayerIndex].GetComponent<PlayerController>().instanceCards = true;
     }
@@ -154,6 +169,7 @@ public class GameManager : MonoBehaviour
         {
             player.GetComponent<PlayerController>().UnsetSelectedCard();
         }
+
     }
 
 }

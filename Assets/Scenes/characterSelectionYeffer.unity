@@ -962,7 +962,9 @@ MonoBehaviour:
   idName: 1
   selectedCharacter: 0
   character: {fileID: 0}
-  actions: []
+  actionCards: []
+  instanceCards: 0
+  selectedCards: []
 --- !u!1 &768615847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1814,9 @@ MonoBehaviour:
   idName: 2
   selectedCharacter: 0
   character: {fileID: 0}
-  actions: []
+  actionCards: []
+  instanceCards: 0
+  selectedCards: []
 --- !u!1 &1684224824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,6 +2461,6 @@ MonoBehaviour:
   - {fileID: 376019161}
   - {fileID: 878728938}
   prefabs:
-  - {fileID: 9064721865187087165, guid: b75241776bc40db4782a31a2d4dd6bd4, type: 3}
-  - {fileID: 926601276215024019, guid: af68130b233888640a1b9d40c5735d1f, type: 3}
-  - {fileID: 7184381410602533330, guid: 7bc32abf67ae8b74784ecd3bec2824b2, type: 3}
+  - {fileID: 6549189809112931811, guid: 0bb40c77a86708f4dba8fd0b5359606d, type: 3}
+  - {fileID: 8171792879911827639, guid: 127764aececf3b043992e607053e9f48, type: 3}
+  - {fileID: 4530707359936031084, guid: d4a0b2c53e98c2f42a55543fb465541d, type: 3}

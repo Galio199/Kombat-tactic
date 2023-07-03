@@ -4,6 +4,8 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using TMPro;
+using UnityEngine.UI;
 
 public class ActionCard : MonoBehaviour
 {
@@ -15,6 +17,13 @@ public class ActionCard : MonoBehaviour
 
     //Posicion de la carta cuando es elegida
     public Vector3[] positionSelectedActionCards;
+
+
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI coolDownText;
+    public TextMeshProUGUI actionText;
+    public Image attackArea;
+    public Image image;
 
     void Start()
     {

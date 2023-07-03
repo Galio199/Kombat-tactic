@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         selectedCards = new List<GameObject>();
     }
 
-    public void SetCards(GameObject card)
+    public void SetCard(GameObject card)
     {
         //Debug.Log("SetCards");
         actionCards.Add(card);
