@@ -386,6 +386,7 @@ MonoBehaviour:
   actionCards: []
   instanceCards: 0
   selectedCards: []
+  selectedActions: []
 --- !u!4 &267319041
 Transform:
   m_ObjectHideFlags: 0
@@ -2413,6 +2414,7 @@ MonoBehaviour:
   actionCards: []
   instanceCards: 0
   selectedCards: []
+  selectedActions: []
 --- !u!4 &2040585388
 Transform:
   m_ObjectHideFlags: 0

@@ -180,6 +180,10 @@ public class GameManager : MonoBehaviour
 
     public void ExecuteActions()
     {
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().SelectedActions();
+        }
         actionCardsContainer.SetActive(false);
         elegirAcciones.SetActive(true);
     }

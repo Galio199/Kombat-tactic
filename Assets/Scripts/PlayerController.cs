@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
 
     public List<GameObject> selectedCards;
+    public List<Action> selectedActions;
 
 
     private void Awake()
@@ -62,5 +63,14 @@ public class PlayerController : MonoBehaviour
     public void UnsetSelectedCard()
     {
         selectedCards.Clear();
+        selectedActions.Clear();
+    }
+
+    public void SelectedActions()
+    {
+        foreach (GameObject selectedCard in selectedCards)
+        {
+            selectedActions.Add(selectedCard.GetComponent<ActionCard>().action);
+        }
     }
 }
