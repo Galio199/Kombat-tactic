@@ -19,26 +19,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject actionCardPrefab;
     [SerializeField] private int numCards;
 
-    //[SerializeField] private RectTransform actionCardsContainer;
     [SerializeField] private GameObject actionCardsContainer;
-    [SerializeField] private GameObject elegirAcciones;
+    [SerializeField] private GameObject executeActionContainer;
 
     public static List<GameObject> temporaryActionCards;
 
 
     void Start()
     {
-        //selectedActions = 0;
-        //players = GameObject.FindGameObjectsWithTag("Player");
-
         //Buscar a los jugaadores, almacenarlos y ordenarlos
         players = GameObject.FindGameObjectsWithTag("Player");
         players = players.OrderBy(player => player.name).ToArray();
 
+        //Iniciar la eleccion de acciones
         InstantiateActionCards();
         temporaryActionCards = new List<GameObject>();
     }
 
+    #region Choose Action
     public void StartNextTurnCardSelection()
     {
         //Reiniciar contador de acciones para el turno del jugador
@@ -87,8 +85,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Pasando a ejecutar acciones");
             ExecuteActions();
-            //NewRound();
-            //return;
         }
 
 
@@ -165,17 +161,17 @@ public class GameManager : MonoBehaviour
         players[currentPlayerIndex].GetComponent<PlayerController>().UnsetSelectedCard();
     }
 
-
-    //Eliminar las acciones elegidas de cada jugador para la proximaa ronda
-    //de seleccion de acciones
-    //public void NewRound()
-    //{
-    //    foreach (GameObject player in players)
-    //    {
-    //        player.GetComponent<PlayerController>().UnsetSelectedCard();
-    //    }
-
-    //}
+    //Activar la seleccion de cartas
+    public void ChooseActionsCards()
+    {
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().UnsetSelectedCard();
+        }
+        actionCardsContainer.SetActive(true);
+        executeActionContainer.SetActive(false);
+    }
+    #endregion
 
 
     public void ExecuteActions()
@@ -185,18 +181,8 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerController>().SelectedActions();
         }
         actionCardsContainer.SetActive(false);
-        elegirAcciones.SetActive(true);
+        executeActionContainer.SetActive(true);
     }
 
-
-    public void ChooseActionsCards()
-    {
-        foreach (GameObject player in players)
-        {
-            player.GetComponent<PlayerController>().UnsetSelectedCard();
-        }
-        actionCardsContainer.SetActive(true);
-        elegirAcciones.SetActive(false);
-    }
 
 }

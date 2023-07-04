@@ -13,7 +13,7 @@ public class ActionSelf : Action
     [Header("Action")]
     [SerializeField] private ActionType actionType;
 
-    public override void execute()
+    public override void Execute()
     {
         switch (this.actionType)
         {
@@ -29,5 +29,6 @@ public class ActionSelf : Action
 
         }
 
+        cooldown = baseCooldown+1;
     }
 }

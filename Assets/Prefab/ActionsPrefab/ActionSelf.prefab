@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionName: 
   priority: 4
-  cooldown: 1
+  baseCooldown: 0
+  cooldown: 0
   damage: 0
   effect: 
-  guardType: 0
+  image: {fileID: 0}
+  actionType: 0

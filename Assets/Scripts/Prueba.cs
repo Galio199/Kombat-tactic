@@ -51,7 +51,7 @@ public class Prueba : MonoBehaviour
 
     IEnumerator ExecuteActionAndWait(Action action, string logMessage)
     {
-        action.execute();
+        action.Execute();
         Debug.Log(logMessage);
         yield return new WaitForSeconds(5f); // Tiempo de espera entre acciones
     }

@@ -16,7 +16,7 @@ public class ActionMove : Action
 
     private Vector2 pointMove;
 
-    public override void execute()
+    public override void Execute()
     {
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
         pointMove = myCharacter.transform.position;
@@ -29,6 +29,8 @@ public class ActionMove : Action
             //Ejecutar el movimineto
             StartCoroutine(MoveCoroutine());
         }
+
+        cooldown = baseCooldown+1;
     }
     private IEnumerator MoveCoroutine()
     {

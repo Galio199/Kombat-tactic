@@ -89,7 +89,7 @@ public class ActionCard : MonoBehaviour
     {
         actionText.text = action.ActionName;
         damageText.text = action.GetDamage().ToString();
-        coolDownText.text = action.cooldown.ToString();
+        coolDownText.text = action.GetBaseCooldown().ToString();
 
         //Convertir imagen de tipo Texture2D a Sprite y asignar a la carta de accion
         Sprite imageSprite = Sprite.Create(action.image, new Rect(0, 0, action.image.width, action.image.height), Vector2.one * 0.5f);

@@ -68,10 +68,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7894430197962032661, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
-      propertyPath: cooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894430197962032661, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
       propertyPath: priority
       value: 1
       objectReference: {fileID: 0}
@@ -80,8 +76,16 @@ PrefabInstance:
       value: AtaqueEspecial
       objectReference: {fileID: 0}
     - target: {fileID: 7894430197962032661, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
+      propertyPath: baseCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894430197962032661, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
       propertyPath: specialAtacck
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327518639033500223, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8901254062070417960, guid: 8bcb2c5df9bdb9f4e84d0295609f261e, type: 3}
       propertyPath: m_RootOrder
@@ -160,14 +164,14 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7348830307377399443, guid: b870cf847a085ce449d627e0b1d7245d, type: 3}
-      propertyPath: cooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7348830307377399443, guid: b870cf847a085ce449d627e0b1d7245d, type: 3}
       propertyPath: ActionName
       value: Ataque1
       objectReference: {fileID: 0}
     - target: {fileID: 8355715672865229486, guid: b870cf847a085ce449d627e0b1d7245d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927161809311843001, guid: b870cf847a085ce449d627e0b1d7245d, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
@@ -244,14 +248,14 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7253736491353850394, guid: 10c9973506fb0c44aaa6849bb6b4f2ac, type: 3}
-      propertyPath: cooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7253736491353850394, guid: 10c9973506fb0c44aaa6849bb6b4f2ac, type: 3}
       propertyPath: ActionName
       value: Ataque2
       objectReference: {fileID: 0}
     - target: {fileID: 8260534037798342183, guid: 10c9973506fb0c44aaa6849bb6b4f2ac, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842147770442892848, guid: 10c9973506fb0c44aaa6849bb6b4f2ac, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
@@ -275,21 +279,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6173811631843121933}
     m_Modifications:
+    - target: {fileID: 240710407229462080, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 811208320153706071, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2110148302821085802, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
       propertyPath: damage
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2110148302821085802, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
-      propertyPath: cooldown
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2110148302821085802, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
       propertyPath: ActionName
       value: Ataque3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110148302821085802, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
+      propertyPath: baseCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2575445532576429807, guid: 35049d0be4ad11f4d8897ddabbd4fca3, type: 3}
       propertyPath: m_Name

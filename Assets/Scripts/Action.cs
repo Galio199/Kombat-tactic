@@ -7,7 +7,8 @@ public abstract class Action : MonoBehaviour
     [Header("General")]
     public string ActionName;
     [SerializeField] private int priority;
-    public int cooldown;
+    [SerializeField] protected int baseCooldown;
+    [HideInInspector] public int cooldown = 0;
     [SerializeField] private int damage = 0;
     [SerializeField] private string effect = "";
 
@@ -31,6 +32,11 @@ public abstract class Action : MonoBehaviour
         return this.effect;
     }
 
+    public int GetBaseCooldown()
+    {
+        return this.baseCooldown;
+    }
+
     //Agregar las referencias de los personajes
     public void SetCharacters()
     {
@@ -38,6 +44,6 @@ public abstract class Action : MonoBehaviour
         this.oponentCharacter = myCharacter.GetOponent();
     }
 
-    public abstract void execute();
+    public abstract void Execute();
 
 }

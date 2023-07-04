@@ -25,7 +25,7 @@ public class ActionAttack : Action
 
     private bool affects = false;
 
-    public override void execute()
+    public override void Execute()
     {
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
 
@@ -48,18 +48,21 @@ public class ActionAttack : Action
         if (affects)
         {
             //Llamar a la funcion healthSystem para realizar los cambios a la vida del oponente
-            healthSystem();
+            HealthSystem();
         }
 
         //Verificar y llamar la funcion de ataque especial
         if (special)
         {
-            specialAttack();
+            SpecialAttack();
         }
+
+        myCharacter.damageChange = 0;
+        cooldown = baseCooldown+1;
 
     }
 
-    public void healthSystem()
+    public void HealthSystem()
     {
         int damage = this.GetDamage(); ;
         damage -= oponentCharacter.guardChange;
@@ -83,7 +86,7 @@ public class ActionAttack : Action
         }
     }
 
-    public void specialAttack()
+    public void SpecialAttack()
     {
         switch (this.specialAtacck)
         {
@@ -93,10 +96,10 @@ public class ActionAttack : Action
                 float myPositionX = myCharacter.transform.position.x;
                 if (oponentPositionX > myPositionX)
                 {
-                    actions[2].execute();
+                    actions[2].Execute();
                 } else if (oponentPositionX < myPositionX)
                 {
-                    actions[3].execute();
+                    actions[3].Execute();
                 } 
                 break;
             case SpecialAtacck.WARRIOR:

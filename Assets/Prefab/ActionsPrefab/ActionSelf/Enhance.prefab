@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: actionType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -3837417738281057722, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
+      propertyPath: baseCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 228420961675622074, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
       propertyPath: m_Name
       value: Enhance

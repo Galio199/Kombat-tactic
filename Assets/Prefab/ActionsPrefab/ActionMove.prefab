@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionName: 
   priority: 3
+  baseCooldown: 0
   cooldown: 0
   damage: 0
   effect: 
