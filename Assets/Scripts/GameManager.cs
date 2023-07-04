@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject player in players)
         {
+            player.GetComponent<PlayerController>().CoolDownActionCards();
             player.GetComponent<PlayerController>().UnsetSelectedCard();
         }
         actionCardsContainer.SetActive(true);

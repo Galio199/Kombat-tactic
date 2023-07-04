@@ -27,6 +27,9 @@ public class ActionCard : MonoBehaviour
 
     public Action action;
 
+    //pruebas
+    [SerializeField] private int cooldown;
+
     void Start()
     {
         //Buscar, almacenar y oordenar los objetos que tienen la poosicion donde van las tarjetas elejidas
@@ -38,12 +41,17 @@ public class ActionCard : MonoBehaviour
         {
             positionSelectedActionCards[i] = selectedCardsPosition[i].GetComponent<RectTransform>().position;
         }
+        cooldown = action.cooldown;
     }
 
 
     //Al dar click sobre la tarjeta la elige
     public void PointerClick()
     {
+        //comprobar si la carta está en cooldown
+        if (action.cooldown != 0) return;
+        //if (cooldown != 0) return; //pruebas
+
 
         //Comprobar que no se haya pasado del limite maximo dee acciones
         if (GameManager.selectedActions < GameManager.maxActions)
@@ -94,5 +102,37 @@ public class ActionCard : MonoBehaviour
         //Convertir imagen de tipo Texture2D a Sprite y asignar a la carta de accion
         Sprite imageSprite = Sprite.Create(action.image, new Rect(0, 0, action.image.width, action.image.height), Vector2.one * 0.5f);
         attackArea.sprite = imageSprite;
+    }
+
+    public void CoolDown()
+    {
+        cooldown = action.cooldown;
+        if (cooldown != 0)
+        {
+            Debug.Log("Entro a oscurecerse, la variable cooldown es " + cooldown);
+            //Color colorOpacity = gameObject.GetComponent<Image>().color;
+            //colorOpacity.a = 0.5f;
+            //gameObject.GetComponent<Image>().color = colorOpacity;
+
+            Image[] images = gameObject.GetComponentsInChildren<Image>();
+
+            foreach (Image image in images)
+            {
+                Color color = image.color;
+                color.a = 0.5f;
+                image.color = color;
+            }
+        }
+        else
+        {
+            Image[] images = gameObject.GetComponentsInChildren<Image>();
+
+            foreach (Image image in images)
+            {
+                Color color = image.color;
+                color.a = 1f;
+                image.color = color;
+            }
+        }
     }
 }

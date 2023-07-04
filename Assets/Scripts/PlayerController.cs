@@ -73,4 +73,12 @@ public class PlayerController : MonoBehaviour
             selectedActions.Add(selectedCard.GetComponent<ActionCard>().action);
         }
     }
+
+    public void CoolDownActionCards()
+    {
+        foreach (GameObject actionCard in actionCards)
+        {
+            actionCard.GetComponent<ActionCard>().CoolDown();
+        }
+    }
 }

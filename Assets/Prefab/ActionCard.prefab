@@ -1366,6 +1366,8 @@ MonoBehaviour:
   actionText: {fileID: 1314014370426966480}
   attackArea: {fileID: 4686075858209552732}
   image: {fileID: 1314014371623915792}
+  action: {fileID: 0}
+  cooldown: 0
 --- !u!1 &1314014371688093748
 GameObject:
   m_ObjectHideFlags: 0
