@@ -11,9 +11,15 @@ public class GameManager : MonoBehaviour
     public static int maxActions = 3;
     public static int selectedActions;
 
+
+    [Header("General")]
     [SerializeField] private GameObject[] players;
     [SerializeField] private int currentPlayerIndex = 0;
 
+    public List<Character> characters;
+    [SerializeField] private Transform[] spawnPositions;
+
+    [Header("Choose Action Cards")]
     [SerializeField] private RectTransform[] spawns;
 
     [SerializeField] private GameObject actionCardPrefab;
@@ -24,16 +30,31 @@ public class GameManager : MonoBehaviour
 
     public static List<GameObject> temporaryActionCards;
 
-
     void Start()
     {
+        currentPlayerIndex = 0;
         //Buscar a los jugaadores, almacenarlos y ordenarlos
         players = GameObject.FindGameObjectsWithTag("Player");
         players = players.OrderBy(player => player.name).ToArray();
 
+        //Obtener e instanciar los characters de los jugadores
+        for (int i = 0; i < players.Length; i++)
+        {
+            GameObject player = players[i];
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            Character character = playerController.character.GetComponent<Character>();
+
+            characters.Add(character);
+
+            Transform spawnPosition = spawnPositions[i];
+            Instantiate(character.gameObject, spawnPosition.position, spawnPosition.rotation);
+        }
+
         //Iniciar la eleccion de acciones
         InstantiateActionCards();
         temporaryActionCards = new List<GameObject>();
+
+        
     }
 
     #region Choose Action
@@ -174,16 +195,69 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-
+    #region Execute Actions
     public void ExecuteActions()
     {
+        //Guardar las acciones en el player, ocultar la interfaz de eleccion y mostrar la de seleccion
         foreach (GameObject player in players)
         {
             player.GetComponent<PlayerController>().SelectedActions();
         }
         actionCardsContainer.SetActive(false);
         executeActionContainer.SetActive(true);
+
+
+
     }
+    
+    public Action[] PrioritySystem(Action action0, Action action1)
+    {
+        Action[] actions = new Action[2];
 
+        //Comprobar si los personajes tienen cambios en su prioridad
+        if (characters[0].priorityChange > characters[1].priorityChange)
+        {
+            actions[0] = action0;
+            actions[1] = action1;
+        } 
+        else if (characters[0].priorityChange < characters[1].priorityChange)
+        {
+            actions[0] = action1;
+            actions[1] = action0;
+        }
+        else
+        {
+            //Comprobar la prioridad de las acciones
+            if (action0.GetPriotiy() > action1.GetPriotiy())
+            {
+                actions[0] = action0;
+                actions[1] = action1;
+            }
+            else if (action0.GetPriotiy() < action1.GetPriotiy())
+            {
+                actions[0] = action1;
+                actions[1] = action0;
+            }
+            else
+            {
+                //Elegir aleatoriamente cual accion va primero
+                if (Random.Range(0f, 1f) > 0.5f)
+                {
+                    actions[0] = action0;
+                    actions[1] = action1;
+                }
+                else
+                {
+                    actions[0] = action1;
+                    actions[1] = action0;
+                }
+            }
+        }
+        //Reestablecer los cambios a la prioridad de los personajes 
+        characters[0].priorityChange = 0;
+        characters[1].priorityChange = 0;
 
+        return actions;
+    }
+    #endregion
 }
