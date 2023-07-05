@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         players = players.OrderBy(player => player.name).ToArray();
 
-        /*
+        //Obetener e instanciar los characters de los player a partir de los prefabs
         for (int i = 0; i < players.Length; i++)
         {
             GameObject characterPrefab = players[i].GetComponent<PlayerController>().character;
@@ -48,11 +48,13 @@ public class GameManager : MonoBehaviour
 
             characters[i]=character;
 
+            players[i].GetComponent<PlayerController>().character = characterInstance;
+
             Debug.Log("Personaje agregado");
         }
-        */
+
         /*
-        //Obtener e instanciar los characters de los jugadores
+        //Obtener las instancias de los characters de los player
         for (int i = 0; i < players.Length; i++)
         {
             Character character = players[i].GetComponent<PlayerController>().character.GetComponent<Character>();
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
             Instantiate(character.gameObject, spawnPosition.position, spawnPosition.rotation);
         }
         */
+
         //Asignar los oponentes a los character
         characters[0].SetOponent(characters[1]);
         characters[1].SetOponent(characters[0]);
@@ -209,6 +212,8 @@ public class GameManager : MonoBehaviour
         }
         actionCardsContainer.SetActive(true);
         executeActionContainer.SetActive(false);
+
+        StartNextTurnCardSelection();
     }
     #endregion
 
@@ -235,7 +240,7 @@ public class GameManager : MonoBehaviour
             //Ejecutar acciones y comprobar condiciones de victoria
             foreach (Action action in actions)
             {
-                Debug.Log("Se ejecuto la accion");
+                Debug.Log("Se ejecuto la accion" + action.ActionName);
                 action.Execute();
                 yield return new WaitForSeconds(4f);
                 if (VictorySystem()) { EndGame(); yield break; }
@@ -248,9 +253,24 @@ public class GameManager : MonoBehaviour
             characters[0].guardChange = 0;
             characters[1].guardChange = 0;
 
-            Debug.Log("Se acabo el turno");
+            Debug.Log("Se ejecuto el par");
 
             yield return null;
+        }
+
+        Debug.Log("Se acabo el turno");
+        //Reestablecer cambios al daño
+        characters[0].damageChange = 0;
+        characters[1].damageChange = 0;
+
+        //Reducir el cooldown
+        for (int i = 0; i < 2; i++)
+        {
+            Action[] actions = characters[i].GetActions();
+            foreach(Action action in actions)
+            {
+                if (action.cooldown > 0) { action.cooldown -= 1; }
+            }
         }
 
         ChooseActionsCards();

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionName: 
   priority: 0
+  baseCooldown: 0
   cooldown: 0
   damage: 0
   effect: 
@@ -53,7 +54,7 @@ MonoBehaviour:
   range: []
   special: 0
   specialAtacck: 3
-  cellDistance: 1
+  cellDistance: 3
   offsetPointMove: {x: 0, y: 0.5}
   character:
     serializedVersion: 2

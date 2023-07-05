@@ -52,7 +52,7 @@ MonoBehaviour:
   effect: 
   image: {fileID: 0}
   direction: {x: 0, y: 0}
-  cellDistance: 1
+  cellDistance: 3
   speed: 2
   offsetPointMove: {x: 0, y: 0.5}
   obstacles:

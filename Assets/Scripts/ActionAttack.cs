@@ -103,13 +103,10 @@ public class ActionAttack : Action
                 } 
                 break;
             case SpecialAtacck.WARRIOR:
-                myCharacter.priorityChange = 1;
+                if (affects) { myCharacter.priorityChange = 1; }
                 break;
             case SpecialAtacck.WIZARD:
-                if (affects)
-                {
-                    oponentCharacter.priorityChange = -1;
-                }
+                if (affects) { oponentCharacter.priorityChange = -1; }
                 break;
         }
     }

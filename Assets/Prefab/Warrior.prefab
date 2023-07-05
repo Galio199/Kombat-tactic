@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623154390583690646, guid: a10a7c69db8fbd64599f50eb43eb4e1a, type: 3}
       propertyPath: effect
-      value: Potencia su velocidad luego de atacar
+      value: Gana prioridad si lograr impactar al rival
       objectReference: {fileID: 0}
     - target: {fileID: 4623154390583690646, guid: a10a7c69db8fbd64599f50eb43eb4e1a, type: 3}
       propertyPath: special
