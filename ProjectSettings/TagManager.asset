@@ -7,6 +7,8 @@ TagManager:
   - SelectedAction
   - Spawn
   - ActionCard
+  - Character1
+  - Character2
   layers:
   - Default
   - TransparentFX

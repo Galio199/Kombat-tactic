@@ -37,18 +37,36 @@ public class GameManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         players = players.OrderBy(player => player.name).ToArray();
 
+        /*
+        for (int i = 0; i < players.Length; i++)
+        {
+            GameObject characterPrefab = players[i].GetComponent<PlayerController>().character;
+            Transform spawnPosition = spawnPositions[i];
+
+            GameObject characterInstance = Instantiate(characterPrefab, spawnPosition.position, spawnPosition.rotation);
+            Character character = characterInstance.GetComponent<Character>();
+
+            characters[i]=character;
+
+            Debug.Log("Personaje agregado");
+        }
+        */
+        /*
         //Obtener e instanciar los characters de los jugadores
         for (int i = 0; i < players.Length; i++)
         {
-            GameObject player = players[i];
-            PlayerController playerController = player.GetComponent<PlayerController>();
-            Character character = playerController.character.GetComponent<Character>();
+            Character character = players[i].GetComponent<PlayerController>().character.GetComponent<Character>();
 
-            characters.Add(character);
-
+            characters[i] = character;
+            Debug.Log("Personaje agregado");
             Transform spawnPosition = spawnPositions[i];
             Instantiate(character.gameObject, spawnPosition.position, spawnPosition.rotation);
         }
+        */
+        //Asignar los oponentes a los character
+        characters[0].SetOponent(characters[1]);
+        characters[1].SetOponent(characters[0]);
+        Debug.Log("Oponentes asignados");
 
         //Iniciar la eleccion de acciones
         InstantiateActionCards();
@@ -101,15 +119,14 @@ public class GameManager : MonoBehaviour
         players[currentPlayerIndex].GetComponent<PlayerController>().enabled = false;
 
 
-        //Nueva ronda de seleccioon de acciones
+        //Pasar a ejecutar las acciones
         if (currentPlayerIndex == players.Length - 1)
         {
             Debug.Log("Pasando a ejecutar acciones");
-            ExecuteActions();
+            StartCoroutine(ExecuteActions());
+            return;
         }
 
-
-        //Siguiente turno
         StartNextTurnCardSelection();
     }
 
@@ -196,7 +213,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Execute Actions
-    public void ExecuteActions()
+    IEnumerator ExecuteActions()
     {
         //Guardar las acciones en el player, ocultar la interfaz de eleccion y mostrar la de seleccion
         foreach (GameObject player in players)
@@ -206,7 +223,37 @@ public class GameManager : MonoBehaviour
         actionCardsContainer.SetActive(false);
         executeActionContainer.SetActive(true);
 
+        List<Action> actions1 = players[0].GetComponent<PlayerController>().selectedActions;
+        List<Action> actions2 = players[1].GetComponent<PlayerController>().selectedActions;
+        Debug.Log("Acciones escogidas obtenidas");
+        for (int i=0; i<3; i++)
+        {
+            yield return new WaitForSeconds(2f);
+            //Comprobar prioridad
+            Action[] actions = PrioritySystem(actions1[i],actions2[i]);
 
+            //Ejecutar acciones y comprobar condiciones de victoria
+            foreach (Action action in actions)
+            {
+                Debug.Log("Se ejecuto la accion");
+                action.Execute();
+                yield return new WaitForSeconds(4f);
+                if (VictorySystem()) { EndGame(); yield break; }
+            }
+
+
+            //Reestablecer las prioridades y el guard de los personajes
+            characters[0].priorityChange = 0;
+            characters[1].priorityChange = 0;
+            characters[0].guardChange = 0;
+            characters[1].guardChange = 0;
+
+            Debug.Log("Se acabo el turno");
+
+            yield return null;
+        }
+
+        ChooseActionsCards();
 
     }
     
@@ -253,11 +300,18 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        //Reestablecer los cambios a la prioridad de los personajes 
-        characters[0].priorityChange = 0;
-        characters[1].priorityChange = 0;
-
+        Debug.Log("Prioridad comprobada");
         return actions;
     }
+
+    public bool VictorySystem()
+    {
+        return false;
+    }
     #endregion
+
+    public void EndGame()
+    {
+
+    }
 }

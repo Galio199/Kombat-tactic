@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     [Header("Actions")]
     [SerializeField] private Action[] actions;
 
-    private Character oponent;
+    [SerializeField] private Character oponent;
 
     // Inicializar los valores de las estadisticas
     public void ResetStats()
