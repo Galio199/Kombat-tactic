@@ -19,9 +19,10 @@ public class ActionMove : Action
     public override void Execute()
     {
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
+        Vector2 directionTemporal = direction;
         pointMove = myCharacter.transform.position;
-        direction *= cellDistance;
-        pointMove += direction;
+        directionTemporal *= cellDistance;
+        pointMove += directionTemporal;
 
         //Comprobar si la casilla esta ocupada por otro jugador o esta fuera del mapa
         if (!Physics2D.OverlapBox(pointMove + offsetPointMove, boxSize, 0f, obstacles))
