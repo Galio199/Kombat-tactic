@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
 
     public List<Character> characters;
     [SerializeField] private Transform[] spawnPositions;
+    [SerializeField] private int numTurn = 1;
+    [SerializeField] private int maxTurns = 50;
+    [SerializeField] private Character winner;
+    [SerializeField] private string winnerPlayer;
 
     [Header("Choose Action Cards")]
     [SerializeField] private RectTransform[] spawns;
@@ -52,19 +56,6 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Personaje agregado");
         }
-
-        /*
-        //Obtener las instancias de los characters de los player
-        for (int i = 0; i < players.Length; i++)
-        {
-            Character character = players[i].GetComponent<PlayerController>().character.GetComponent<Character>();
-
-            characters[i] = character;
-            Debug.Log("Personaje agregado");
-            Transform spawnPosition = spawnPositions[i];
-            Instantiate(character.gameObject, spawnPosition.position, spawnPosition.rotation);
-        }
-        */
 
         //Asignar los oponentes a los character
         characters[0].SetOponent(characters[1]);
@@ -243,7 +234,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Se ejecuto la accion" + action.ActionName);
                 action.Execute();
                 yield return new WaitForSeconds(4f);
-                if (VictorySystem()) { EndGame(); yield break; }
+                if (VictorySystem(0)) { EndGame(); yield break; }
             }
 
 
@@ -259,6 +250,11 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("Se acabo el turno");
+
+        //Aumentar numero de turno y comprobar condicion de victoria
+        numTurn += 1;
+        if (VictorySystem(0)) { EndGame(); yield break; }
+
         //Reestablecer cambios al daño
         characters[0].damageChange = 0;
         characters[1].damageChange = 0;
@@ -272,7 +268,7 @@ public class GameManager : MonoBehaviour
                 if (action.cooldown > 0) { action.cooldown -= 1; }
             }
         }
-
+        
         ChooseActionsCards();
 
     }
@@ -324,14 +320,50 @@ public class GameManager : MonoBehaviour
         return actions;
     }
 
-    public bool VictorySystem()
+    public bool VictorySystem(int i)
     {
+        if (i == 0)
+        {
+            //Comprobar si alguno de los personajes tiene su vida en 0
+            if (characters[0].health == 0)
+            {
+                winner = characters[1];
+                winnerPlayer = "Jugador 2";
+                return true;
+            }
+            else if (characters[1].health == 0)
+            {
+                winner = characters[0];
+                winnerPlayer = "Jugador 1";
+                return true;
+            }
+        } 
+        else
+        {
+            //Comprobar si el numero de turnos es mayor al maximo permitido
+            if (numTurn < maxTurns)
+            {
+                //Asignar como ganador al jugador con mayor vida
+                if (characters[0].health < characters[1].health)
+                {
+                    winner = characters[1];
+                    winnerPlayer = "Jugador 2";
+                    return true;
+                }
+                else if (characters[0].health > characters[1].health)
+                {
+                    winner = characters[0];
+                    winnerPlayer = "Jugador 1";
+                    return true;
+                }
+            }
+        }
         return false;
     }
     #endregion
 
     public void EndGame()
     {
-
+        Debug.Log("Gano el" + winnerPlayer);
     }
 }
