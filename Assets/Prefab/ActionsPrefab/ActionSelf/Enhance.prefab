@@ -12,12 +12,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2800000, guid: eb02adf3dbdc5ee4b8ef3d1c227a30cc, type: 3}
     - target: {fileID: -3837417738281057722, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
+      propertyPath: effect
+      value: "Aumenta el da\xF1o del siguiente ataque"
+      objectReference: {fileID: 0}
+    - target: {fileID: -3837417738281057722, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
       propertyPath: guardType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3837417738281057722, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
       propertyPath: ActionName
-      value: Enhance
+      value: Potenciar
       objectReference: {fileID: 0}
     - target: {fileID: -3837417738281057722, guid: 05e273b8da98b2249a5e743b6d72da94, type: 3}
       propertyPath: actionType

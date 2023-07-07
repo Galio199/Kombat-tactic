@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: e0e60c941bbd2f44faf3a7c2a799ca87, type: 3}
     - target: {fileID: 2293123204762653755, guid: 08197a3fb3850934ab6a92c60e90c685, type: 3}
       propertyPath: ActionName
-      value: Move Down
+      value: Mover abajo
       objectReference: {fileID: 0}
     - target: {fileID: 2293123204762653755, guid: 08197a3fb3850934ab6a92c60e90c685, type: 3}
       propertyPath: direction.y

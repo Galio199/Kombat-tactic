@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 0a7072f89d1815f4387db79318ad4de0, type: 3}
     - target: {fileID: 2293123204762653755, guid: 08197a3fb3850934ab6a92c60e90c685, type: 3}
       propertyPath: ActionName
-      value: Move left
+      value: Mover izquierda
       objectReference: {fileID: 0}
     - target: {fileID: 2293123204762653755, guid: 08197a3fb3850934ab6a92c60e90c685, type: 3}
       propertyPath: direction.x

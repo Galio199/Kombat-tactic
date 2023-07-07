@@ -131,17 +131,18 @@ MonoBehaviour:
   damageChange: 0
   guardChange: 0
   actions:
+  - {fileID: 3429330827699475994}
   - {fileID: 2983497938527729155}
-  - {fileID: 5459237148687186595}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 3702028533088240404}
+  - {fileID: 5459237148687186595}
   - {fileID: 6091195194582188018}
   - {fileID: 7168659965114396622}
   - {fileID: 1041126247667912174}
-  - {fileID: 3429330827699475994}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  oponent: {fileID: 0}
 --- !u!1 &3427497969605939033
 GameObject:
   m_ObjectHideFlags: 0

@@ -485,22 +485,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194315807574223222, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
       propertyPath: CharacterName
-      value: Huntress
+      value: Cazadora
       objectReference: {fileID: 0}
     - target: {fileID: 8194315807574223222, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
-      propertyPath: actions.Array.data[7]
+      propertyPath: actions.Array.data[2]
       value: 
       objectReference: {fileID: 4647436462526059170}
     - target: {fileID: 8194315807574223222, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
-      propertyPath: actions.Array.data[8]
+      propertyPath: actions.Array.data[3]
       value: 
       objectReference: {fileID: 5741071729654463845}
     - target: {fileID: 8194315807574223222, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
-      propertyPath: actions.Array.data[9]
+      propertyPath: actions.Array.data[4]
       value: 
       objectReference: {fileID: 6705332432229196303}
     - target: {fileID: 8194315807574223222, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
-      propertyPath: actions.Array.data[10]
+      propertyPath: actions.Array.data[5]
       value: 
       objectReference: {fileID: 8572447428346066549}
     m_RemovedComponents: []

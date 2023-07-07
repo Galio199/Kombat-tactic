@@ -96,10 +96,10 @@ public class ActionAttack : Action
                 float myPositionX = myCharacter.transform.position.x;
                 if (oponentPositionX > myPositionX)
                 {
-                    actions[2].Execute();
+                    actions[6].Execute();
                 } else if (oponentPositionX < myPositionX)
                 {
-                    actions[3].Execute();
+                    actions[8].Execute();
                 } 
                 break;
             case SpecialAtacck.WARRIOR:
