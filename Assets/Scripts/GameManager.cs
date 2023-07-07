@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using System.Linq;
-
-
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,9 +30,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int numCards;
 
     [SerializeField] private GameObject actionCardsContainer;
-    [SerializeField] private GameObject executeActionContainer;
+    //[SerializeField] private GameObject executeActionContainer;
 
     public static List<GameObject> temporaryActionCards;
+
+    [SerializeField] private GameObject newGame;
+    [SerializeField] private GameObject winnerTextTitle;
+    [SerializeField] private GameObject winnerText;
+
 
     void Start()
     {
@@ -202,7 +207,6 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerController>().UnsetSelectedCard();
         }
         actionCardsContainer.SetActive(true);
-        executeActionContainer.SetActive(false);
 
         StartNextTurnCardSelection();
     }
@@ -217,7 +221,6 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerController>().SelectedActions();
         }
         actionCardsContainer.SetActive(false);
-        executeActionContainer.SetActive(true);
 
         List<Action> actions1 = players[0].GetComponent<PlayerController>().selectedActions;
         List<Action> actions2 = players[1].GetComponent<PlayerController>().selectedActions;
@@ -364,6 +367,36 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        foreach (Character character in characters)
+        {
+            character.gameObject.SetActive(false);
+        }
+
         Debug.Log("Gano el" + winnerPlayer);
+
+        //Destroy(actionCardsContainer);
+
+        Camera.main.backgroundColor = Color.black;
+
+        newGame.SetActive(true);
+        winnerText.SetActive(true);
+        winnerTextTitle.SetActive(true);
+
+        //Mostrar Personaje que ganó la partida y centrarlo
+        winner.gameObject.SetActive(true);
+        winner.gameObject.GetComponent<Transform>().position = new Vector3(0,0);
+
+        winnerText.GetComponent<TextMeshProUGUI>().text = winnerPlayer;
+
+
+    }
+
+    public void NewGame()
+    {
+        foreach (GameObject player in players)
+        {
+            Destroy(player);
+        }
+        SceneManager.LoadScene(0);
     }
 }
