@@ -228,22 +228,21 @@ public class GameManager : MonoBehaviour
         for (int i=0; i<3; i++)
         {
             yield return new WaitForSeconds(2f);
-            //Comprobar prioridad
+            //Comprobar prioridad y reestablecer los cambios a la prioridad
             Action[] actions = PrioritySystem(actions1[i],actions2[i]);
+            characters[0].priorityChange = 0;
+            characters[1].priorityChange = 0;
 
             //Ejecutar acciones y comprobar condiciones de victoria
             foreach (Action action in actions)
             {
-                Debug.Log("Se ejecuto la accion" + action.ActionName);
+                Debug.Log("Se ejecuto la accion " + action.ActionName);
                 action.Execute();
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(action.durationAnimation);
                 if (VictorySystem(0)) { EndGame(); yield break; }
             }
 
-
-            //Reestablecer las prioridades y el guard de los personajes
-            characters[0].priorityChange = 0;
-            characters[1].priorityChange = 0;
+            //Reestablecer los cambios al guard de los personajes
             characters[0].guardChange = 0;
             characters[1].guardChange = 0;
 
@@ -365,6 +364,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region End game
     public void EndGame()
     {
         foreach (Character character in characters)
@@ -399,4 +399,5 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(0);
     }
+    #endregion
 }

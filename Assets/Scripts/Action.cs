@@ -15,8 +15,14 @@ public abstract class Action : MonoBehaviour
     [Header("Range Image")]
     [SerializeField] public Texture2D image;
 
+    [Header("Animation")]
+    public float durationAnimation = 1;
+
     protected Character myCharacter;
     protected Character oponentCharacter;
+
+
+
     public int GetPriotiy()
     {
         return this.priority;

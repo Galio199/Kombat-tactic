@@ -51,4 +51,5 @@ MonoBehaviour:
   damage: 0
   effect: 
   image: {fileID: 0}
+  durationAnimation: 1
   actionType: 0

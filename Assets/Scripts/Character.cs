@@ -20,10 +20,10 @@ public class Character : MonoBehaviour
     // Inicializar los valores de las estadisticas
     public void ResetStats()
     {
-        this.health = 100;
-        this.priorityChange = 0;
-        this.damageChange = 0;
-        this.guardChange = 0;
+        health = 100;
+        priorityChange = 0;
+        damageChange = 0;
+        guardChange = 0;
     }
 
     public Action[] GetActions()

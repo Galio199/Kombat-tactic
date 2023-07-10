@@ -51,6 +51,7 @@ MonoBehaviour:
   damage: 0
   effect: 
   image: {fileID: 0}
+  durationAnimation: 3
   direction: {x: 0, y: 0}
   cellDistance: 3
   speed: 2

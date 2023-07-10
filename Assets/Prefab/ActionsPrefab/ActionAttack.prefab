@@ -51,6 +51,7 @@ MonoBehaviour:
   damage: 0
   effect: 
   image: {fileID: 0}
+  durationAnimation: 2.5
   range: []
   special: 0
   specialAtacck: 3
