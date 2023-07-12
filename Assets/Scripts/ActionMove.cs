@@ -8,20 +8,19 @@ public class ActionMove : Action
     [SerializeField] private Vector2 direction;
 
     [Header("Settings")]
-    [SerializeField] private float cellDistance = 1f;
-    [SerializeField] private float speed = 2f;
-    [SerializeField] private Vector2 offsetPointMove = new Vector2(0f,0.5f);
+    [SerializeField] private Vector2 cellDistance;
+    [SerializeField] private float speed;
+    [SerializeField] private Vector2 offsetPointMove;
     [SerializeField] private LayerMask obstacles;
-    [SerializeField] private float radius = 0.4f;
+    [SerializeField] private float radius;
 
     private Vector2 pointMove;
 
     public override void Execute()
     {
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
-        Vector2 directionTemporal = direction;
+        Vector2 directionTemporal = Vector2.Scale(direction, cellDistance);
         pointMove = myCharacter.transform.position;
-        directionTemporal *= cellDistance;
         pointMove += directionTemporal;
 
         //Comprobar si la casilla esta ocupada por otro jugador o esta fuera del mapa
@@ -41,5 +40,11 @@ public class ActionMove : Action
             yield return null;
         }
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(pointMove + offsetPointMove, radius);
     }
 }

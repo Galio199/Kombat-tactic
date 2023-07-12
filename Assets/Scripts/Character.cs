@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PositionInCell
+{
+    LEFT, RIGHT
+}
+
 public class Character : MonoBehaviour
 {
     public string CharacterName;
@@ -16,6 +21,8 @@ public class Character : MonoBehaviour
     [SerializeField] private Action[] actions;
 
     [SerializeField] private Character oponent;
+
+    private PositionInCell positionInCell = PositionInCell.LEFT;
 
     // Inicializar los valores de las estadisticas
     public void ResetStats()
@@ -48,6 +55,16 @@ public class Character : MonoBehaviour
         {
             action.SetCharacters();
         }
+    }
+
+    public void SetPositionInCell(PositionInCell position)
+    {
+        this.positionInCell = position;
+    }
+
+    public PositionInCell GetPositionInCell()
+    {
+        return positionInCell;
     }
 
 }

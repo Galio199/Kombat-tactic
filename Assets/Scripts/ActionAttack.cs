@@ -18,10 +18,10 @@ public class ActionAttack : Action
     [SerializeField] private SpecialAtacck specialAtacck = SpecialAtacck.NONE;
 
     [Header("Settings")]
-    [SerializeField] private float cellDistance = 1f;
-    [SerializeField] private Vector2 offsetPointMove = new Vector2(0f, 0.5f);
+    [SerializeField] private Vector2 cellDistance;
+    [SerializeField] private Vector2 offsetPointAttack;
     [SerializeField] private LayerMask character;
-    [SerializeField] private float radius = 0.4f;
+    [SerializeField] private float radius;
 
     private bool affects = false;
 
@@ -29,12 +29,23 @@ public class ActionAttack : Action
     {
         Vector2 boxSize = new Vector2(radius * 2, radius * 2);
 
+        //Cuadrar el offset del ataque
+        Vector2 offsetPointAttackTemporal;
+        if (myCharacter.GetPositionInCell() == PositionInCell.RIGHT)
+        {
+            offsetPointAttackTemporal = Vector2.Scale(offsetPointAttack, new Vector2(-1, 0));
+        }
+        else
+        {
+            offsetPointAttackTemporal = offsetPointAttack;
+        }
+
         //Aplicar el offset respecto a la posicion del jugador
         Vector2 pointCharacter = myCharacter.transform.position;
-        pointCharacter += offsetPointMove;
+        pointCharacter += offsetPointAttackTemporal;
         foreach (Vector2 point in range)
         {
-            Vector2 pointRange = point * cellDistance;
+            Vector2 pointRange = Vector2.Scale(point, cellDistance);
             //Ajustar el rango con respecto a la posicion del jugador
             pointRange += pointCharacter;
 

@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Personaje agregado");
         }
 
+        //Asignar las posiciones en las celdas
+        characters[0].SetPositionInCell(PositionInCell.LEFT);
+        characters[1].SetPositionInCell(PositionInCell.RIGHT);
+
         //Asignar los oponentes a los character
         characters[0].SetOponent(characters[1]);
         characters[1].SetOponent(characters[0]);

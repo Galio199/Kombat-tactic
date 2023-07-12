@@ -55,9 +55,9 @@ MonoBehaviour:
   range: []
   special: 0
   specialAtacck: 3
-  cellDistance: 3
-  offsetPointMove: {x: 0, y: 0.5}
+  cellDistance: {x: 4, y: 2}
+  offsetPointAttack: {x: 2, y: 0}
   character:
     serializedVersion: 2
     m_Bits: 8
-  radius: 0.4
+  radius: 0.7

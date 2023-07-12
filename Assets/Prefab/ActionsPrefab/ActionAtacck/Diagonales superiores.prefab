@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 7c8555b7d2743644b89170d96f5c21c9, type: 3}
     - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
       propertyPath: range.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
       propertyPath: range.Array.data[0].x
@@ -30,6 +30,14 @@ PrefabInstance:
     - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
       propertyPath: range.Array.data[1].y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
+      propertyPath: range.Array.data[2].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
+      propertyPath: range.Array.data[2].y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3659348750888126916, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
       propertyPath: m_Name

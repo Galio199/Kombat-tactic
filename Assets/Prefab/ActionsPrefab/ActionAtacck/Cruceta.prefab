@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: range.Array.data[3].x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 882016062364331329, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
+      propertyPath: range.Array.data[4].x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3659348750888126916, guid: 008b607a46ad9094c9b33a3fe72ae962, type: 3}
       propertyPath: m_Name
       value: Cruceta

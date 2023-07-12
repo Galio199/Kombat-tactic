@@ -20,7 +20,7 @@ public class Prueba : MonoBehaviour
         Action[] actions2 = character2.GetActions();
         character1.SetOponent(character2);
         character2.SetOponent(character1);
-
+        /*
         // Probar movimiento
         yield return ExecuteActionAndWait(actions1[3], "Se ejecutó el movimiento derecha J1");
 
@@ -47,6 +47,12 @@ public class Prueba : MonoBehaviour
 
         // Probar movimiento
         yield return ExecuteActionAndWait(actions1[2], "Se ejecutó el movimiento izquierda J1");
+        */
+
+        // Probar movimiento
+        yield return ExecuteActionAndWait(actions1[8], "Se ejecutó el movimiento derecha J1");
+        // Probar movimiento
+        yield return ExecuteActionAndWait(actions1[1], "Se ejecutó el movimiento derecha J1");
     }
 
     IEnumerator ExecuteActionAndWait(Action action, string logMessage)

@@ -53,10 +53,10 @@ MonoBehaviour:
   image: {fileID: 0}
   durationAnimation: 3
   direction: {x: 0, y: 0}
-  cellDistance: 3
+  cellDistance: {x: 4, y: 2}
   speed: 2
-  offsetPointMove: {x: 0, y: 0.5}
+  offsetPointMove: {x: 0, y: 0}
   obstacles:
     serializedVersion: 2
-    m_Bits: 72
-  radius: 0.4
+    m_Bits: 64
+  radius: 0.7
