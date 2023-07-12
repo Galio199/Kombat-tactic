@@ -18,8 +18,8 @@ public class ActionCard : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private TextMeshProUGUI coolDownText;
     [SerializeField] private TextMeshProUGUI actionText;
+    [SerializeField] private TextMeshProUGUI specialEffectText;
     [SerializeField] private Image attackArea;
-    [SerializeField] private Image image;
 
     public Action action;
 
@@ -94,7 +94,7 @@ public class ActionCard : MonoBehaviour
         actionText.text = action.ActionName;
         damageText.text = action.GetDamage().ToString();
         coolDownText.text = action.GetBaseCooldown().ToString();
-
+        specialEffectText.text = action.GetEffect();
         //Convertir imagen de tipo Texture2D a Sprite y asignar a la carta de accion
         Sprite imageSprite = Sprite.Create(action.image, new Rect(0, 0, action.image.width, action.image.height), Vector2.one * 0.5f);
         attackArea.sprite = imageSprite;
