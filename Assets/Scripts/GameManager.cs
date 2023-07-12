@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     public static List<GameObject> temporaryActionCards;
 
-    [SerializeField] private GameObject newGame;
+    [SerializeField] private GameObject newGameButton;
+    [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject winnerTextTitle;
     [SerializeField] private GameObject winnerText;
 
@@ -382,7 +383,8 @@ public class GameManager : MonoBehaviour
 
         Camera.main.backgroundColor = Color.black;
 
-        newGame.SetActive(true);
+        newGameButton.SetActive(true);
+        mainMenuButton.SetActive(true);
         winnerText.SetActive(true);
         winnerTextTitle.SetActive(true);
 
@@ -392,10 +394,10 @@ public class GameManager : MonoBehaviour
 
         winnerText.GetComponent<TextMeshProUGUI>().text = winnerPlayer;
 
-
+        selectedActions = 0;
     }
 
-    public void NewGame()
+    public void GoMainMenu()
     {
         foreach (GameObject player in players)
         {
@@ -404,4 +406,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     #endregion
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
