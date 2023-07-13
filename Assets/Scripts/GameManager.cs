@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
@@ -97,7 +98,6 @@ public class GameManager : MonoBehaviour
 
         //Mostrar cartas del jugador y activar sus componentes
         players[currentPlayerIndex].GetComponent<PlayerController>().EnableCards();
-        players[currentPlayerIndex].GetComponent<PlayerController>().enabled = true;
     }
 
     public void EndTurnCardSelection()
@@ -120,7 +120,6 @@ public class GameManager : MonoBehaviour
 
         //Desactivar componentes del jugador actual
         players[currentPlayerIndex].GetComponent<PlayerController>().DisableCards();
-        players[currentPlayerIndex].GetComponent<PlayerController>().enabled = false;
 
 
         //Pasar a ejecutar las acciones
@@ -409,6 +408,17 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        foreach (GameObject player in players)
+        {
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            playerController.character = null;
+            playerController.selectedCharacter = false;
+            playerController.actionCards.Clear();
+            playerController.selectedCards.Clear();
+            playerController.selectedActions.Clear();
+            playerController.instanceCards = false;
+            playerController.victoryCount += 1;
+        }
         SceneManager.LoadScene(1);
     }
 }

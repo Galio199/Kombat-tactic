@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public string idName;
+    //public string idName;
     public bool selectedCharacter;
 
     public GameObject character;
@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     public List<GameObject> selectedCards;
     public List<Action> selectedActions;
+
+    public int victoryCount;
 
 
     private void Awake()

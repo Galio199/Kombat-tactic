@@ -1,16 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
-    public PlayerController[] players;
+    private PlayerController[] players;
+    public GameObject playerPrefab;
     private int playerIndex;
 
     void Start()
     {
+        Debug.Log("Entro START");
         this.playerIndex = 0;
+        players = new PlayerController[2];
+        GetPlayers();
+    }
+
+    public void GetPlayers()
+    {
+        if (GameObject.Find("Player1") == null && GameObject.Find("Player2") == null)
+        {
+            GameObject player = Instantiate(playerPrefab);
+            player.name = "Player1";
+            player = Instantiate(playerPrefab);
+            player.name = "Player2";
+        }
+
+        GameObject[] playerGameObjects = GameObject.FindGameObjectsWithTag("Player");
+        playerGameObjects = playerGameObjects.OrderBy(player => player.name).ToArray();
+
+        for (int i = 0; i < playerGameObjects.Length; i++)
+        {
+            players[i] = playerGameObjects[i].GetComponent<PlayerController>();
+        }
     }
 
     public void characterSelection()
