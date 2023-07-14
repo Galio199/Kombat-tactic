@@ -9,6 +9,7 @@ TagManager:
   - ActionCard
   - Character1
   - Character2
+  - Score
   layers:
   - Default
   - TransparentFX
