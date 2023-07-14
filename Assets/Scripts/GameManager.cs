@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winnerTextTitle;
     [SerializeField] private GameObject winnerText;
 
+    [SerializeField] private GameObject viewCardsButton;
+    [SerializeField] private GameObject[] scores = new GameObject[2];
+
 
     void Start()
     {
@@ -76,8 +79,6 @@ public class GameManager : MonoBehaviour
         //Iniciar la eleccion de acciones
         InstantiateActionCards();
         temporaryActionCards = new List<GameObject>();
-
-        
     }
 
     #region Choose Action
@@ -393,6 +394,14 @@ public class GameManager : MonoBehaviour
 
         winnerText.GetComponent<TextMeshProUGUI>().text = winnerPlayer;
 
+
+        //for (int i = 0; i < scores.Length; i++)
+        //{
+        //    characters[i].gameObject.SetActive(false);
+        //    scores[i].gameObject.GetComponent<TextMeshProUGUI>().text = players[i].GetComponent<PlayerController>().victoryCount;
+        //    scores[i].gameObject.SetActive(true);
+        //}
+
         selectedActions = 0;
     }
 
@@ -417,8 +426,19 @@ public class GameManager : MonoBehaviour
             playerController.selectedCards.Clear();
             playerController.selectedActions.Clear();
             playerController.instanceCards = false;
-            playerController.victoryCount += 1;
         }
         SceneManager.LoadScene(1);
+    }
+
+    public void ViewMap()
+    {
+        actionCardsContainer.SetActive(false);
+        viewCardsButton.SetActive(true);
+    }
+
+    public void ViewCards()
+    {
+        viewCardsButton.SetActive(false);
+        actionCardsContainer.SetActive(true);
     }
 }
