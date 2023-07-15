@@ -9,7 +9,7 @@ public abstract class Action : MonoBehaviour
     public string ActionName;
     [SerializeField] private int priority;
     [SerializeField] protected int baseCooldown;
-    [HideInInspector] public int cooldown = 0;
+    public int cooldown = 0;
     [SerializeField] private int damage = 0;
     [SerializeField] private string effect = "";
     

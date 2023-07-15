@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
@@ -48,7 +47,6 @@ public class CharacterSelectionManager : MonoBehaviour
             if (playerIndex == players.Length - 1)
             {
                 SceneManager.LoadScene("Fight");
-                //GameObject.Find("SceneController").GetComponent<SceneController>().LoadScene("Fight");
             }
             this.playerIndex = (this.playerIndex + 1) % players.Length;
         }

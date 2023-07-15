@@ -5,7 +5,6 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
