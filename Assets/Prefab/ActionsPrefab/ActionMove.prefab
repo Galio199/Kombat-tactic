@@ -53,6 +53,8 @@ MonoBehaviour:
   image: {fileID: 0}
   durationAnimation: 3
   durationMessage: 0
+  durationEffectCell: 1
+  effectCell: {fileID: 5180132173627666761, guid: d496f5c17f9a8904fa705fe2d78b6339, type: 3}
   direction: {x: 0, y: 0}
   cellDistance: {x: 4, y: 2}
   speed: 2
@@ -61,4 +63,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   radius: 0.7
-  effectCell: {fileID: 5180132173627666761, guid: d496f5c17f9a8904fa705fe2d78b6339, type: 3}

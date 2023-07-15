@@ -12,18 +12,24 @@ public abstract class Action : MonoBehaviour
     [HideInInspector] public int cooldown = 0;
     [SerializeField] private int damage = 0;
     [SerializeField] private string effect = "";
-    [SerializeField] protected GameObject effectCell;
+    
 
     [Header("Range Image")]
     public Texture2D image;
 
     [Header("Animation")]
     public float durationAnimation;
-    public float durationMessage;
+    [SerializeField] protected float durationMessage;
+    [SerializeField] protected float durationEffectCell;
+
+    [Header("EffectCells")]
+    [SerializeField] protected GameObject effectCell;
+    protected List<GameObject> effectCells = new List<GameObject>();
+    protected Vector2 offsetEffectCell;
 
     protected Character myCharacter;
     protected Character oponentCharacter;
-    protected Vector2 offsetEffectCell;
+    
 
 
 
@@ -67,9 +73,8 @@ public abstract class Action : MonoBehaviour
     }
 
     //Funcion para mostrar mensajes
-    public IEnumerator ShowFloatingMessage(string message, Color color, GameObject character, float wait = 0f)
+    protected IEnumerator ShowFloatingMessage(string message, Color color, GameObject character)
     {
-        yield return new WaitForSeconds(wait);
         TMP_Text textComponent = character.GetComponentInChildren<TMP_Text>(true);
         textComponent.text = message;
         textComponent.color = color;
@@ -78,6 +83,22 @@ public abstract class Action : MonoBehaviour
         textComponent.gameObject.SetActive(false);
     }
 
+    //Funcion para mostrar el rango de casillas que afecta el ataque
+    protected void ShowEffectCell(Vector2 position)
+    {
+        GameObject effectObject = Instantiate(effectCell, position, Quaternion.identity);
+        effectCells.Add(effectObject);
+    }
+
+    protected IEnumerator DestroyEffectCell()
+    {
+        yield return new WaitForSeconds(durationEffectCell);
+        foreach (GameObject cell in effectCells)
+        {
+            Destroy(cell);
+        }
+        effectCells.Clear();
+    }
     public abstract void Execute();
 
 }

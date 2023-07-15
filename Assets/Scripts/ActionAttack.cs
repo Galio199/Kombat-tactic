@@ -46,6 +46,10 @@ public class ActionAttack : Action
         foreach (Vector2 point in range)
         {
             Vector2 pointRange = Vector2.Scale(point, cellDistance);
+
+            //Mostrar el rango en pantalla
+            ShowEffectCell(pointRange + pointCharacter - offsetPointAttackTemporal + offsetEffectCell);
+
             //Ajustar el rango con respecto a la posicion del jugador
             pointRange += pointCharacter;
 
@@ -55,22 +59,26 @@ public class ActionAttack : Action
                 affects = true;
             }
         }
+        StartCoroutine(DestroyEffectCell());
+        StartCoroutine(AttackCoroutine());
+    }
 
+    private IEnumerator AttackCoroutine()
+    {
+        yield return new WaitForSeconds(durationEffectCell+0.2f);
         if (affects)
         {
             //Llamar a la funcion healthSystem para realizar los cambios a la vida del oponente
             HealthSystem();
         }
-
+        yield return new WaitForSeconds(durationMessage+0.2f);
         //Verificar y llamar la funcion de ataque especial
         if (special)
         {
             SpecialAttack();
         }
-
         myCharacter.damageChange = 0;
-        cooldown = baseCooldown+1;
-
+        cooldown = baseCooldown + 1;
     }
 
     public void HealthSystem()
@@ -118,14 +126,14 @@ public class ActionAttack : Action
                 if (affects) 
                 { 
                     myCharacter.priorityChange = 1;
-                    StartCoroutine(ShowFloatingMessage("+velocidad", Color.blue, myCharacter.gameObject, durationMessage+0.5f));
+                    StartCoroutine(ShowFloatingMessage("+velocidad", Color.blue, myCharacter.gameObject));
                 }
                 break;
             case SpecialAtacck.WIZARD:
                 if (affects) 
                 { 
                     oponentCharacter.priorityChange = -1;
-                    StartCoroutine(ShowFloatingMessage("-velocidad", Color.magenta, oponentCharacter.gameObject, durationMessage+0.5f));
+                    StartCoroutine(ShowFloatingMessage("-velocidad", Color.magenta, oponentCharacter.gameObject));
                 }
                 
                 break;

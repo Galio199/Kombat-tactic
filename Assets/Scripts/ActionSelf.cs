@@ -15,6 +15,16 @@ public class ActionSelf : Action
 
     public override void Execute()
     {
+        Vector2 position = myCharacter.transform.position;
+        ShowEffectCell(position + offsetEffectCell);
+        StartCoroutine(ActionSelfCoroutine());
+        StartCoroutine(DestroyEffectCell());
+        cooldown = baseCooldown + 1;
+    }
+
+    private IEnumerator ActionSelfCoroutine()
+    {
+        yield return new WaitForSeconds(durationEffectCell+0.2f);
         switch (this.actionType)
         {
             case ActionType.PROTECT:
@@ -30,7 +40,5 @@ public class ActionSelf : Action
                 StartCoroutine(ShowFloatingMessage("+10 Ataque", Color.yellow, myCharacter.gameObject));
                 break;
         }
-
-        cooldown = baseCooldown+1;
     }
 }
