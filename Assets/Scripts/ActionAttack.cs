@@ -85,6 +85,7 @@ public class ActionAttack : Action
             damage = 0;
         }
 
+        StartCoroutine(ShowFloatingMessage("-"+damage+" vida", Color.red, oponentCharacter.gameObject));
         int oponentHealth = oponentCharacter.health;
         //Comprobar si al recibir daño la vida del oponente queda por debajo de 0 y cambiar la vida del rival
         if (oponentHealth - damage < 0)
@@ -111,13 +112,22 @@ public class ActionAttack : Action
                 } else if (oponentPositionX < myPositionX)
                 {
                     actions[8].Execute();
-                } 
+                }
                 break;
             case SpecialAtacck.WARRIOR:
-                if (affects) { myCharacter.priorityChange = 1; }
+                if (affects) 
+                { 
+                    myCharacter.priorityChange = 1;
+                    StartCoroutine(ShowFloatingMessage("+velocidad", Color.blue, myCharacter.gameObject, durationMessage+0.5f));
+                }
                 break;
             case SpecialAtacck.WIZARD:
-                if (affects) { oponentCharacter.priorityChange = -1; }
+                if (affects) 
+                { 
+                    oponentCharacter.priorityChange = -1;
+                    StartCoroutine(ShowFloatingMessage("-velocidad", Color.magenta, oponentCharacter.gameObject, durationMessage+0.5f));
+                }
+                
                 break;
         }
     }

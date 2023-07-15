@@ -20,7 +20,10 @@ public class Character : MonoBehaviour
     [Header("Actions")]
     [SerializeField] private Action[] actions;
 
+    public Sprite miniature;
+
     [SerializeField] private Character oponent;
+
 
     private PositionInCell positionInCell = PositionInCell.LEFT;
 
@@ -54,6 +57,7 @@ public class Character : MonoBehaviour
         foreach(Action action in actions)
         {
             action.SetCharacters();
+            action.OffsetEffectCell();
         }
     }
 

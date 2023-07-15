@@ -19,14 +19,16 @@ public class ActionSelf : Action
         {
             case ActionType.PROTECT:
                 myCharacter.guardChange = 10;
+                StartCoroutine(ShowFloatingMessage("+10 Defensa", Color.green, myCharacter.gameObject));
                 break;
             case ActionType.BLOCK:
                 myCharacter.guardChange = 100;
+                StartCoroutine(ShowFloatingMessage("+100 Defensa", Color.green, myCharacter.gameObject));
                 break;
             case ActionType.ENHANCE:
                 myCharacter.damageChange = 10;
+                StartCoroutine(ShowFloatingMessage("+10 Ataque", Color.yellow, myCharacter.gameObject));
                 break;
-
         }
 
         cooldown = baseCooldown+1;

@@ -50,6 +50,8 @@ MonoBehaviour:
   cooldown: 0
   damage: 0
   effect: 
+  effectCell: {fileID: 5180132173627666761, guid: d496f5c17f9a8904fa705fe2d78b6339, type: 3}
   image: {fileID: 0}
-  durationAnimation: 1
+  durationAnimation: 2.5
+  durationMessage: 2
   actionType: 0

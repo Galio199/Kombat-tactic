@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     [Header("General")]
     [SerializeField] private GameObject[] players;
     [SerializeField] private int currentPlayerIndex = 0;
-
     public List<Character> characters;
     [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private int numTurn = 1;
@@ -26,23 +25,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Choose Action Cards")]
     [SerializeField] private RectTransform[] spawns;
-
     [SerializeField] private GameObject actionCardPrefab;
     [SerializeField] private int numCards;
-
     [SerializeField] private GameObject actionCardsContainer;
-    //[SerializeField] private GameObject executeActionContainer;
-
     public static List<GameObject> temporaryActionCards;
 
+    [Header("UI Elements")]
     [SerializeField] private GameObject newGameButton;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject winnerTextTitle;
     [SerializeField] private GameObject winnerText;
-
     [SerializeField] private GameObject viewCardsButton;
     [SerializeField] private GameObject[] scores = new GameObject[2];
-
+    [SerializeField] private GameObject grid;
 
     void Start()
     {
@@ -212,8 +207,22 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerController>().UnsetSelectedCard();
         }
         actionCardsContainer.SetActive(true);
+        mainMenuButton.SetActive(true);
 
         StartNextTurnCardSelection();
+    }
+    public void ViewMap()
+    {
+        actionCardsContainer.SetActive(false);
+        mainMenuButton.SetActive(false);
+        viewCardsButton.SetActive(true);
+    }
+
+    public void ViewCards()
+    {
+        viewCardsButton.SetActive(false);
+        actionCardsContainer.SetActive(true);
+        mainMenuButton.SetActive(true);
     }
     #endregion
 
@@ -225,6 +234,7 @@ public class GameManager : MonoBehaviour
         {
             player.GetComponent<PlayerController>().SelectedActions();
         }
+        mainMenuButton.SetActive(false);
         actionCardsContainer.SetActive(false);
 
         List<Action> actions1 = players[0].GetComponent<PlayerController>().selectedActions;
@@ -275,7 +285,8 @@ public class GameManager : MonoBehaviour
                 if (action.cooldown > 0) { action.cooldown -= 1; }
             }
         }
-        
+
+        //Activar la eleccion de acciones
         ChooseActionsCards();
 
     }
@@ -336,12 +347,14 @@ public class GameManager : MonoBehaviour
             {
                 winner = characters[1];
                 winnerPlayer = "Jugador 2";
+                players[1].GetComponent<PlayerController>().victoryCount += 1;
                 return true;
             }
             else if (characters[1].health == 0)
             {
                 winner = characters[0];
                 winnerPlayer = "Jugador 1";
+                players[0].GetComponent<PlayerController>().victoryCount += 1;
                 return true;
             }
         } 
@@ -355,12 +368,14 @@ public class GameManager : MonoBehaviour
                 {
                     winner = characters[1];
                     winnerPlayer = "Jugador 2";
+                    players[1].GetComponent<PlayerController>().victoryCount += 1;
                     return true;
                 }
                 else if (characters[0].health > characters[1].health)
                 {
                     winner = characters[0];
                     winnerPlayer = "Jugador 1";
+                    players[0].GetComponent<PlayerController>().victoryCount += 1;
                     return true;
                 }
             }
@@ -369,7 +384,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region End game
+    #region End/New game
     public void EndGame()
     {
         foreach (Character character in characters)
@@ -383,6 +398,7 @@ public class GameManager : MonoBehaviour
 
         Camera.main.backgroundColor = Color.black;
 
+        grid.SetActive(false);
         newGameButton.SetActive(true);
         mainMenuButton.SetActive(true);
         winnerText.SetActive(true);
@@ -413,7 +429,6 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(0);
     }
-    #endregion
 
     public void NewGame()
     {
@@ -429,16 +444,6 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.LoadScene(1);
     }
+    #endregion
 
-    public void ViewMap()
-    {
-        actionCardsContainer.SetActive(false);
-        viewCardsButton.SetActive(true);
-    }
-
-    public void ViewCards()
-    {
-        viewCardsButton.SetActive(false);
-        actionCardsContainer.SetActive(true);
-    }
 }

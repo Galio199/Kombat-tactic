@@ -23,7 +23,7 @@ public class ActionMove : Action
         pointMove = myCharacter.transform.position;
         pointMove += directionTemporal;
 
-        //Comprobar si la casilla esta ocupada por otro jugador o esta fuera del mapa
+        //Comprobar si la casilla esta fuera del mapa
         if (!Physics2D.OverlapBox(pointMove + offsetPointMove, boxSize, 0f, obstacles))
         {
             //Ejecutar el movimineto
@@ -39,12 +39,5 @@ public class ActionMove : Action
             myCharacter.transform.position = Vector2.MoveTowards(myCharacter.transform.position, pointMove, speed * Time.deltaTime);
             yield return null;
         }
-
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(pointMove + offsetPointMove, radius);
     }
 }
