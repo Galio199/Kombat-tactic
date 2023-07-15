@@ -21,6 +21,7 @@ public class ActionAttack : Action
     [SerializeField] private Vector2 cellDistance;
     [SerializeField] private Vector2 offsetPointAttack;
     [SerializeField] private LayerMask character;
+    [SerializeField] private LayerMask borderMap;
     [SerializeField] private float radius;
 
     private bool affects = false;
@@ -47,11 +48,14 @@ public class ActionAttack : Action
         {
             Vector2 pointRange = Vector2.Scale(point, cellDistance);
 
-            //Mostrar el rango en pantalla
-            ShowEffectCell(pointRange + pointCharacter - offsetPointAttackTemporal + offsetEffectCell);
-
             //Ajustar el rango con respecto a la posicion del jugador
             pointRange += pointCharacter;
+
+            //Comprobar si el rango esta dentro del mapa y mostrar el rango en pantalla
+            if (!Physics2D.OverlapBox(pointRange, boxSize, 0f, borderMap))
+            {
+                ShowEffectCell(pointRange - offsetPointAttackTemporal + offsetEffectCell);
+            }
 
             //Comprobar si el enemigo esta en rango del ataque
             if (Physics2D.OverlapBox(pointRange, boxSize, 0f, character))
@@ -77,6 +81,7 @@ public class ActionAttack : Action
         {
             SpecialAttack();
         }
+        affects = false;
         myCharacter.damageChange = 0;
         cooldown = baseCooldown + 1;
     }

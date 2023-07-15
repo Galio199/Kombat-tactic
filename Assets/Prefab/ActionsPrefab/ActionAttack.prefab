@@ -63,4 +63,7 @@ MonoBehaviour:
   character:
     serializedVersion: 2
     m_Bits: 8
+  borderMap:
+    serializedVersion: 2
+    m_Bits: 64
   radius: 0.7

@@ -59,7 +59,7 @@ MonoBehaviour:
   cellDistance: {x: 4, y: 2}
   speed: 2
   offsetPointMove: {x: 0, y: 0}
-  obstacles:
+  borderMap:
     serializedVersion: 2
     m_Bits: 64
   radius: 0.7

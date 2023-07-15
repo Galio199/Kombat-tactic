@@ -11,7 +11,7 @@ public class ActionMove : Action
     [SerializeField] private Vector2 cellDistance;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 offsetPointMove;
-    [SerializeField] private LayerMask obstacles;
+    [SerializeField] private LayerMask borderMap;
     [SerializeField] private float radius;
 
     private Vector2 pointMove;
@@ -24,7 +24,7 @@ public class ActionMove : Action
         pointMove += directionTemporal;
 
         //Comprobar si la casilla esta fuera del mapa
-        if (!Physics2D.OverlapBox(pointMove + offsetPointMove, boxSize, 0f, obstacles))
+        if (!Physics2D.OverlapBox(pointMove + offsetPointMove, boxSize, 0f, borderMap))
         {
 
             ShowEffectCell(pointMove + offsetEffectCell);

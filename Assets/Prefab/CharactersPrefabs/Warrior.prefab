@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6122096910615438970, guid: d246beb3541a0c141a22a86c6e45283e, type: 3}
       propertyPath: ActionName
-      value: Ataque3
+      value: Ataque 3
       objectReference: {fileID: 0}
     - target: {fileID: 6122096910615438970, guid: d246beb3541a0c141a22a86c6e45283e, type: 3}
       propertyPath: baseCooldown
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277752302427146785, guid: d2654dce2190a0146b20d72fb4646e19, type: 3}
       propertyPath: ActionName
-      value: Ataque2
+      value: Ataque 2
       objectReference: {fileID: 0}
     - target: {fileID: 2145167371467886091, guid: d2654dce2190a0146b20d72fb4646e19, type: 3}
       propertyPath: m_RootOrder
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601800770625955827, guid: 5395c8c4d01c16546a0bddd26989692f, type: 3}
       propertyPath: ActionName
-      value: Ataque1
+      value: Ataque 1
       objectReference: {fileID: 0}
     - target: {fileID: 2940762539514233718, guid: 5395c8c4d01c16546a0bddd26989692f, type: 3}
       propertyPath: m_Name
@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623154390583690646, guid: a10a7c69db8fbd64599f50eb43eb4e1a, type: 3}
       propertyPath: ActionName
-      value: AtaqueEspecial
+      value: Ataque Especial
       objectReference: {fileID: 0}
     - target: {fileID: 4623154390583690646, guid: a10a7c69db8fbd64599f50eb43eb4e1a, type: 3}
       propertyPath: baseCooldown
