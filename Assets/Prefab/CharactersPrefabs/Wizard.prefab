@@ -297,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894430197962032661, guid: 174ff22e2c896d24c96f1aabb0d330d3, type: 3}
       propertyPath: durationAnimation
-      value: 6.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8327518639033500223, guid: 174ff22e2c896d24c96f1aabb0d330d3, type: 3}
       propertyPath: m_RootOrder
