@@ -86,7 +86,7 @@ public class ActionAttack : Action
         cooldown = baseCooldown + 1;
     }
 
-    public void HealthSystem()
+    private void HealthSystem()
     {
         int damage = this.GetDamage(); ;
         damage -= oponentCharacter.guardChange;
@@ -111,7 +111,7 @@ public class ActionAttack : Action
         }
     }
 
-    public void SpecialAttack()
+    private void SpecialAttack()
     {
         switch (this.specialAtacck)
         {

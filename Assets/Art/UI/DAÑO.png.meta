@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "DA\xD1O_0"
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 164
+        width: 980
+        height: 956
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85332d7330c1ed4787ccf80d0564e5d
+      internalID: -1292906276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "DA\xD1O_2"
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 149
+        width: 1052
+        height: 1014
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5387e17bb190ff45b48c07bb2e6fbd5
+      internalID: 1707028936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "DA\xD1O_5"
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 141
+        width: 1053
+        height: 1015
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a622a67de629bde498827e58d4a9045a
+      internalID: 2107585756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "DA\xD1O_7"
+      rect:
+        serializedVersion: 2
+        x: 2794
+        y: 118
+        width: 948
+        height: 979
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e11f189b511fa44d8c08297524ac5e3
+      internalID: 425480114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +198,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "DA\xD1O_0": -1292906276
+      "DA\xD1O_1": 67750923
+      "DA\xD1O_10": 702556172
+      "DA\xD1O_11": 1992956272
+      "DA\xD1O_12": 1688289987
+      "DA\xD1O_13": -1597277525
+      "DA\xD1O_2": 1707028936
+      "DA\xD1O_3": 213848579
+      "DA\xD1O_4": 17985480
+      "DA\xD1O_5": 2107585756
+      "DA\xD1O_6": -831423554
+      "DA\xD1O_7": 425480114
+      "DA\xD1O_8": -564503848
+      "DA\xD1O_9": -774803410
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

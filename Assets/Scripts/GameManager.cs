@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public static int maxActions = 3;
     public static int selectedActions;
 
-
     [Header("General")]
     [SerializeField] private GameObject[] players;
     [SerializeField] private int currentPlayerIndex = 0;
@@ -37,6 +36,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject viewCardsButton;
     [SerializeField] private GameObject[] scores = new GameObject[2];
     [SerializeField] private GameObject grid;
+    [SerializeField] private GameObject cardsInGameContainer;
+    [SerializeField] private GameObject[] cardsInGame;
+    [SerializeField] private GameObject[] actionCardsInGame;
+    [SerializeField] private GameObject[] messagePlayers;
+
 
     void Start()
     {
@@ -70,6 +74,9 @@ public class GameManager : MonoBehaviour
         characters[1].SetOponent(characters[0]);
         Debug.Log("Oponentes asignados");
 
+        //Mostrar mensaje del jugador que debe elegir
+        StartCoroutine(MessagePlayer());
+
         //Iniciar la eleccion de acciones
         InstantiateActionCards();
         temporaryActionCards = new List<GameObject>();
@@ -84,6 +91,9 @@ public class GameManager : MonoBehaviour
         //Indice del jugador que le toca el turno
         currentPlayerIndex = (currentPlayerIndex + 1) % players.Length;
         Debug.Log("Turno del jugador " + (currentPlayerIndex + 1));
+
+        //Mostrar el mensaje indicando el jugador que elije la accion
+        StartCoroutine(MessagePlayer());
 
         //Instanciar las cartas en caso de que sea la primera vez que le toque elegir cartas
         if (players[currentPlayerIndex].GetComponent<PlayerController>().instanceCards == false)
@@ -223,6 +233,24 @@ public class GameManager : MonoBehaviour
         actionCardsContainer.SetActive(true);
         mainMenuButton.SetActive(true);
     }
+
+    private IEnumerator MessagePlayer()
+    {
+        grid.SetActive(false);
+        actionCardsContainer.SetActive(false);
+        mainMenuButton.SetActive(false);
+        messagePlayers[currentPlayerIndex].SetActive(true);
+        characters[0].gameObject.SetActive(false);
+        characters[1].gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+        messagePlayers[currentPlayerIndex].SetActive(false);
+        grid.SetActive(true);
+        actionCardsContainer.SetActive(true);
+        mainMenuButton.SetActive(true);
+        characters[0].gameObject.SetActive(true);
+        characters[1].gameObject.SetActive(true);
+
+    }
     #endregion
 
     #region Execute Actions
@@ -235,13 +263,33 @@ public class GameManager : MonoBehaviour
         }
         mainMenuButton.SetActive(false);
         actionCardsContainer.SetActive(false);
+        cardsInGameContainer.SetActive(true);
 
+        //Activar todas las cartas
+        foreach (GameObject card in cardsInGame){
+            card.SetActive(true);
+        }
+
+        //Obtener las actions escogidas 
         List<Action> actions1 = players[0].GetComponent<PlayerController>().selectedActions;
         List<Action> actions2 = players[1].GetComponent<PlayerController>().selectedActions;
+
         Debug.Log("Acciones escogidas obtenidas");
         for (int i=0; i<3; i++)
         {
-            yield return new WaitForSeconds(2f);
+            //Asignar la accion al actionCard
+            actionCardsInGame[0].GetComponent<ActionCard>().action = actions1[i];
+            actionCardsInGame[0].GetComponent<ActionCard>().SetParameters();
+            actionCardsInGame[1].GetComponent<ActionCard>().action = actions2[i];
+            actionCardsInGame[1].GetComponent<ActionCard>().SetParameters();
+
+            yield return new WaitForSeconds(0.2f);
+            //Mostrar la ActionCard que se va a ejecutar
+            StartCoroutine(moveActionCard(actionCardsInGame[0],1));
+            StartCoroutine(moveActionCard(actionCardsInGame[1],-1));
+
+            yield return new WaitForSeconds(2.5f);
+            Debug.Log("Empieza la ejecucion");
             //Comprobar prioridad y reestablecer los cambios a la prioridad
             Action[] actions = PrioritySystem(actions1[i],actions2[i]);
             characters[0].priorityChange = 0;
@@ -262,11 +310,23 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Se ejecuto el par");
 
-            yield return null;
-        }
+            yield return new WaitForSeconds(0.1f);
 
+            //Ocultar las cartas ya usadas
+            if (i != 2)
+            {
+                cardsInGame[i].SetActive(false);
+                cardsInGame[i + 2].SetActive(false);
+            }
+
+            //Reestablecer la posicision de las ActionCard
+            actionCardsInGame[0].GetComponent<RectTransform>().anchoredPosition += Vector2.right * -60;
+            actionCardsInGame[1].GetComponent<RectTransform>().anchoredPosition += Vector2.right * 60;
+
+        }
         Debug.Log("Se acabo el turno");
 
+        cardsInGameContainer.SetActive(false);
         //Aumentar numero de turno y comprobar condicion de victoria
         numTurn += 1;
         if (VictorySystem(0)) { EndGame(); yield break; }
@@ -289,8 +349,20 @@ public class GameManager : MonoBehaviour
         ChooseActionsCards();
 
     }
+
+    private IEnumerator moveActionCard(GameObject actionCard, int direction)
+    {
+        RectTransform rectTransform = actionCard.GetComponent<RectTransform>();
+        Vector2 targetPosition = rectTransform.anchoredPosition + Vector2.right * 60f * direction;
+
+        while (Vector2.Distance(rectTransform.anchoredPosition, targetPosition) > 0)
+        {
+            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, targetPosition, 50f * Time.deltaTime);
+            yield return null;
+        }
+    }
     
-    public Action[] PrioritySystem(Action action0, Action action1)
+    private Action[] PrioritySystem(Action action0, Action action1)
     {
         Action[] actions = new Action[2];
 
@@ -337,7 +409,7 @@ public class GameManager : MonoBehaviour
         return actions;
     }
 
-    public bool VictorySystem(int i)
+    private bool VictorySystem(int i)
     {
         if (i == 0)
         {

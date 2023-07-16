@@ -52,7 +52,7 @@ public class Character : MonoBehaviour
         return oponent;
     }
 
-    public void SetCharactersInActions()
+    private void SetCharactersInActions()
     {
         foreach(Action action in actions)
         {

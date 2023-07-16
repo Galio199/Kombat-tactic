@@ -9,13 +9,16 @@ public class CharacterSelectionManager : MonoBehaviour
     private PlayerController[] players;
     public GameObject playerPrefab;
     private int playerIndex;
-
+    [SerializeField] private GameObject[] messagePlayers;
+    [SerializeField] private GameObject characterSelector;
     void Start()
     {
+
         Debug.Log("Entro START");
         this.playerIndex = 0;
         players = new PlayerController[2];
         GetPlayers();
+        StartCoroutine(MessagePlayer());
     }
 
     public void GetPlayers()
@@ -47,8 +50,21 @@ public class CharacterSelectionManager : MonoBehaviour
             if (playerIndex == players.Length - 1)
             {
                 SceneManager.LoadScene("Fight");
+                return;
             }
             this.playerIndex = (this.playerIndex + 1) % players.Length;
+
+            StartCoroutine(MessagePlayer());
         }
+    }
+
+    private IEnumerator MessagePlayer()
+    {
+        characterSelector.SetActive(false);
+        messagePlayers[playerIndex].SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        messagePlayers[playerIndex].SetActive(false);
+        characterSelector.SetActive(true);
+
     }
 }
