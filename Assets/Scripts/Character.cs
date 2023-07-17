@@ -72,5 +72,23 @@ public class Character : MonoBehaviour
         return positionInCell;
     }
 
+    //Cuadrar la orientacion (vista) en el juego
+    public void Orientation(float comparationPosition = -9999)
+    {
+        if (comparationPosition == -9999)
+        {
+            comparationPosition = oponent.transform.position.x;
+        }
+        float myPositionX = this.transform.position.x;
+        if (comparationPosition> myPositionX)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (comparationPosition < myPositionX)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
 }
 

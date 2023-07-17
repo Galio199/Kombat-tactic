@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
         characters[0].SetPositionInCell(PositionInCell.LEFT);
         characters[1].SetPositionInCell(PositionInCell.RIGHT);
 
+        //Hacerle flip al jugador 2
+        characters[1].gameObject.GetComponent<SpriteRenderer>().flipX = true;
+
         //Asignar los oponentes a los character
         characters[0].SetOponent(characters[1]);
         characters[1].SetOponent(characters[0]);

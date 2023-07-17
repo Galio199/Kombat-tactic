@@ -26,7 +26,6 @@ public class ActionMove : Action
         //Comprobar si la casilla esta fuera del mapa
         if (!Physics2D.OverlapBox(pointMove + offsetPointMove, boxSize, 0f, borderMap))
         {
-
             ShowEffectCell(pointMove + offsetEffectCell);
             StartCoroutine(DestroyEffectCell());
             //Ejecutar el movimineto
@@ -38,16 +37,18 @@ public class ActionMove : Action
             ShowEffectCell( position + offsetEffectCell);
             StartCoroutine(DestroyEffectCell());
         }
-
         cooldown = baseCooldown+1;
     }
     private IEnumerator MoveCoroutine()
     {
         yield return new WaitForSeconds(durationEffectCell+0.2f);
+        myCharacter.Orientation(pointMove.x);
         while (Vector2.Distance(myCharacter.transform.position, pointMove) > 0)
         {
             myCharacter.transform.position = Vector2.MoveTowards(myCharacter.transform.position, pointMove, speed * Time.deltaTime);
             yield return null;
         }
+        myCharacter.Orientation();
+        oponentCharacter.Orientation();
     }
 }
