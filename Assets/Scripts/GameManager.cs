@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] cardsInGame;
     [SerializeField] private GameObject[] actionCardsInGame;
     [SerializeField] private GameObject[] messagePlayers;
+    [SerializeField] private Image[] healthBars;
+    [SerializeField] private Image[] iconCharacters;
 
 
     void Start()
@@ -64,6 +67,10 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Personaje agregado");
         }
+
+        //Cargar el icono de los personajes
+        iconCharacters[0].sprite = characters[0].miniature;
+        iconCharacters[1].sprite = characters[1].miniature;
 
         //Asignar las posiciones en las celdas
         characters[0].SetPositionInCell(PositionInCell.LEFT);
