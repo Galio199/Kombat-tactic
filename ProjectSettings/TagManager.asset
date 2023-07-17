@@ -50,3 +50,6 @@ TagManager:
   - name: CardsInGame
     uniqueID: 2894850741
     locked: 0
+  - name: MessgePlayer
+    uniqueID: 3253022621
+    locked: 0

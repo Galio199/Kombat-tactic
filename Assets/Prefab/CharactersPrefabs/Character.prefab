@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 1041126247667912174}
   miniature: {fileID: 0}
   oponent: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1 &1296029500811480266
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.84, y: 2.47}
+  m_AnchoredPosition: {x: -1.84, y: 1.35}
   m_SizeDelta: {x: 2.25, y: 1.1456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4292432104181596211
@@ -226,9 +227,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -1041944675
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4673970228304951922
 MonoBehaviour:

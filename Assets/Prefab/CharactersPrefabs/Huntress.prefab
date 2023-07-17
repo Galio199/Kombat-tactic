@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Huntress
       objectReference: {fileID: 0}
+    - target: {fileID: 4802338315975607003, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.35
+      objectReference: {fileID: 0}
     - target: {fileID: 6497336940673675375, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
       propertyPath: m_RootOrder
       value: 0
