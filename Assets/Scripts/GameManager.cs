@@ -41,8 +41,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] cardsInGame;
     [SerializeField] private GameObject[] actionCardsInGame;
     [SerializeField] private GameObject[] messagePlayers;
+    [SerializeField] private GameObject roundContainer;
     [SerializeField] private Image[] healthBars;
     [SerializeField] private Image[] iconCharacters;
+    [SerializeField] private TMP_Text roundCount;
 
 
     void Start()
@@ -67,6 +69,10 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Personaje agregado");
         }
+
+        //Asignar barra de vida a los personajes
+        characters[0].healthBar = healthBars[0];
+        characters[1].healthBar = healthBars[1];
 
         //Cargar el icono de los personajes
         iconCharacters[0].sprite = characters[0].miniature;
@@ -334,9 +340,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Se acabo el turno");
 
         cardsInGameContainer.SetActive(false);
+
         //Aumentar numero de turno y comprobar condicion de victoria
         numTurn += 1;
         if (VictorySystem(0)) { EndGame(); yield break; }
+
+        //Actualizar el numero numero de la ronda en pantalla
+        roundCount.text = numTurn.ToString();
 
         //Reestablecer cambios al daño
         characters[0].damageChange = 0;
@@ -476,7 +486,9 @@ public class GameManager : MonoBehaviour
 
         Camera.main.backgroundColor = Color.black;
 
+        cardsInGameContainer.SetActive(false);
         grid.SetActive(false);
+        roundContainer.SetActive(false);
         newGameButton.SetActive(true);
         mainMenuButton.SetActive(true);
         winnerText.SetActive(true);

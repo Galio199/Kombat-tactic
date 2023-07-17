@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PositionInCell
 {
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
     public Sprite miniature;
 
     [SerializeField] private Character oponent;
-
+    public Image healthBar;
 
     private PositionInCell positionInCell = PositionInCell.LEFT;
 

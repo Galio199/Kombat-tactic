@@ -98,17 +98,39 @@ public class ActionAttack : Action
             damage = 0;
         }
 
-        StartCoroutine(ShowFloatingMessage("-"+damage+" vida", Color.red, oponentCharacter.gameObject));
-        int oponentHealth = oponentCharacter.health;
         //Comprobar si al recibir daño la vida del oponente queda por debajo de 0 y cambiar la vida del rival
-        if (oponentHealth - damage < 0)
+        if (oponentCharacter.health - damage < 0)
         {
+            StartCoroutine(ShowFloatingMessage("-" + oponentCharacter.health + " vida", Color.red, oponentCharacter.gameObject));
             oponentCharacter.health = 0;
+            
         }
         else
         {
-            oponentCharacter.health = oponentHealth - damage;
+            StartCoroutine(ShowFloatingMessage("-" + damage + " vida", Color.red, oponentCharacter.gameObject));
+            oponentCharacter.health -= damage;
+            
         }
+
+        float oponentHealth = oponentCharacter.health;
+        StartCoroutine(UpdateFillAmount(oponentHealth / 100));
+
+    }
+
+    private IEnumerator UpdateFillAmount(float targetFillAmount)
+    {
+        float initialFillAmount = oponentCharacter.healthBar.fillAmount;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < durationMessage)
+        {
+            timeElapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(timeElapsed / durationMessage);
+            oponentCharacter.healthBar.fillAmount = Mathf.Lerp(initialFillAmount, targetFillAmount, t);
+            yield return null;
+        }
+
+        oponentCharacter.healthBar.fillAmount = targetFillAmount;
     }
 
     private void SpecialAttack()
