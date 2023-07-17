@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mago ataque_12
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 8
+        width: 386
+        height: 550
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33daf583ac6d4c741abe105621d7ce0f
+      internalID: -250127062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_1
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 11
+        width: 385
+        height: 503
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113cbbfdac0b09b40a4f3414fca883ce
+      internalID: -1036729280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_2
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 11
+        width: 478
+        height: 565
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3131b7fc7d791439f723c4fd291963
+      internalID: -839414200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 14
+        width: 340
+        height: 397
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e3ef86de0619d44b53d77b46ca4d2b
+      internalID: 807479671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_20
+      rect:
+        serializedVersion: 2
+        x: 3203
+        y: 5
+        width: 749
+        height: 393
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbcf80e645df3248a4b1819a08938c6
+      internalID: -1331917363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_23
+      rect:
+        serializedVersion: 2
+        x: 4046
+        y: 14
+        width: 729
+        height: 391
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f5fcff9401309438e3f807cb217e35
+      internalID: -1615309777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_25
+      rect:
+        serializedVersion: 2
+        x: 4799
+        y: 11
+        width: 496
+        height: 394
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f42628339c8db439fe7af1126aae22
+      internalID: -767063035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago ataque_26
+      rect:
+        serializedVersion: 2
+        x: 5664
+        y: 5
+        width: 337
+        height: 397
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea7933d785d5c64d9a12984a0afef47
+      internalID: 1450624475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +282,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mago ataque_0: -1868706402
+      mago ataque_1: -1036729280
+      mago ataque_10: 1235436315
+      mago ataque_11: 1057027627
+      mago ataque_12: -250127062
+      mago ataque_13: -227265695
+      mago ataque_16: 1017880816
+      mago ataque_17: -1729539032
+      mago ataque_18: -685720924
+      mago ataque_19: 807479671
+      mago ataque_2: -839414200
+      mago ataque_20: -1331917363
+      mago ataque_21: 1297792491
+      mago ataque_22: -2040224169
+      mago ataque_23: -1615309777
+      mago ataque_24: 1447636718
+      mago ataque_25: -767063035
+      mago ataque_26: 1450624475
+      mago ataque_27: 71393642
+      mago ataque_28: -1034988012
+      mago ataque_29: -1987077570
+      mago ataque_3: -2146165581
+      mago ataque_30: 2084486527
+      mago ataque_31: -435745612
+      mago ataque_32: -1197752005
+      mago ataque_33: 1060649036
+      mago ataque_34: -1799311860
+      mago ataque_35: 1069713432
+      mago ataque_36: -50079771
+      mago ataque_37: -1764106898
+      mago ataque_38: 918943277
+      mago ataque_39: 38648705
+      mago ataque_4: -679993612
+      mago ataque_40: -1667840835
+      mago ataque_41: -1525294065
+      mago ataque_5: -1529986021
+      mago ataque_6: -1054495185
+      mago ataque_7: -939281439
+      mago ataque_8: -1617778084
+      mago ataque_9: 512441795
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

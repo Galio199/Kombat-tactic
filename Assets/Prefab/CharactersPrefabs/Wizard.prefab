@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: actions.Array.data[5]
       value: 
       objectReference: {fileID: 6569676302382167539}
+    - target: {fileID: 8551651494301329628, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ee6fdb08a642d0148a596626f4f19e0c, type: 2}
     m_RemovedComponents:
     - {fileID: 5996847165469394669, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}
     - {fileID: 4418433138051627660, guid: 3fc497ec9ac0337479940ead2c1b3ef2, type: 3}

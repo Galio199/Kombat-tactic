@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mago caminando_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a96d117ba13af4c9ad43424114fdc9
+      internalID: -618887188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_2
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2cd25764ff9f9469fde320a282a586
+      internalID: -2105202937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_3
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c67fe9e9f5d25242872c50db0d15a16
+      internalID: -411885351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_4
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd0051e1c2c2bb45913eef87bc5f878
+      internalID: -2128900755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_5
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f38f6ea14c82c4b90d7ffd981dbbd8
+      internalID: -1580811168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_6
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f771936bdcb9f974e91e0baec07e694d
+      internalID: 886348116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_7
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244e81f01e1eee844a14fffea72f842e
+      internalID: 299018341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_8
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf6b773ef5f0bd419a5b3aa47d3bbc0
+      internalID: 291158784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mago caminando_9
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 12
+        width: 336
+        height: 407
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b23407dcd0d6ef046b4ae073d9a8c71d
+      internalID: -1893391743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +303,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mago caminando_0: 1668989830
+      mago caminando_1: -618887188
+      mago caminando_18: 237831794
+      mago caminando_2: -2105202937
+      mago caminando_3: -411885351
+      mago caminando_4: -2128900755
+      mago caminando_5: -1580811168
+      mago caminando_6: 886348116
+      mago caminando_7: 299018341
+      mago caminando_8: 291158784
+      mago caminando_9: -1893391743
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
