@@ -43,11 +43,13 @@ public class ActionMove : Action
     {
         yield return new WaitForSeconds(durationEffectCell+0.2f);
         myCharacter.Orientation(pointMove.x);
+        myCharacter.gameObject.GetComponent<Animator>().SetBool("Walk",true);
         while (Vector2.Distance(myCharacter.transform.position, pointMove) > 0)
         {
             myCharacter.transform.position = Vector2.MoveTowards(myCharacter.transform.position, pointMove, speed * Time.deltaTime);
             yield return null;
         }
+        myCharacter.gameObject.GetComponent<Animator>().SetBool("Walk", false);
         myCharacter.Orientation();
         oponentCharacter.Orientation();
     }

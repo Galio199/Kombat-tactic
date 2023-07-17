@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7379923139219632}
+  - component: {fileID: 1685716201035847316}
   - component: {fileID: -8373964579171445797}
   - component: {fileID: -1038025303553261843}
   - component: {fileID: 8194315807574223222}
@@ -20,8 +20,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7379923139219632
-RectTransform:
+--- !u!4 &1685716201035847316
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -37,11 +37,6 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &-8373964579171445797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,7 +198,7 @@ RectTransform:
   m_LocalScale: {x: 2.173913, y: 2.173913, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7379923139219632}
+  m_Father: {fileID: 1685716201035847316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -380,7 +375,7 @@ Transform:
   - {fileID: 2224046133780349971}
   - {fileID: 8346162570539755059}
   - {fileID: 5923986521872465351}
-  m_Father: {fileID: 7379923139219632}
+  m_Father: {fileID: 1685716201035847316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1458230479968854602
