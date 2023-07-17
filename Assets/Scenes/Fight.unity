@@ -2092,6 +2092,7 @@ MonoBehaviour:
   winnerTextTitle: {fileID: 1425637881}
   winnerText: {fileID: 956402922}
   viewCardsButton: {fileID: 703279411}
+  scoreContainer: {fileID: 1065586823}
   scores:
   - {fileID: 32742406}
   - {fileID: 1763653997}
