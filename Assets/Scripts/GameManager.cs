@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winnerTextTitle;
     [SerializeField] private GameObject winnerText;
     [SerializeField] private GameObject viewCardsButton;
+    [SerializeField] private GameObject scoreContainer;
     [SerializeField] private GameObject[] scores = new GameObject[2];
     [SerializeField] private GameObject grid;
     [SerializeField] private GameObject cardsInGameContainer;
@@ -488,13 +489,9 @@ public class GameManager : MonoBehaviour
 
         winnerText.GetComponent<TextMeshProUGUI>().text = winnerPlayer;
 
-
-        //for (int i = 0; i < scores.Length; i++)
-        //{
-        //    characters[i].gameObject.SetActive(false);
-        //    scores[i].gameObject.GetComponent<TextMeshProUGUI>().text = players[i].GetComponent<PlayerController>().victoryCount;
-        //    scores[i].gameObject.SetActive(true);
-        //}
+        scoreContainer.SetActive(true);
+        scores[0].GetComponent <TextMeshProUGUI>().text = players[0].GetComponent<PlayerController>().victoryCount.ToString();
+        scores[1].GetComponent <TextMeshProUGUI>().text = players[1].GetComponent<PlayerController>().victoryCount.ToString();
 
         selectedActions = 0;
     }

@@ -2092,6 +2092,7 @@ MonoBehaviour:
   winnerTextTitle: {fileID: 1425637881}
   winnerText: {fileID: 956402922}
   viewCardsButton: {fileID: 703279411}
+  scoreContainer: {fileID: 1065586823}
   scores:
   - {fileID: 32742406}
   - {fileID: 1763653997}
@@ -5165,7 +5166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2863688252200306680, guid: 09323247272c0ae40ac6bd4af3bc3a91, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -219.09
+      value: -219.09003
       objectReference: {fileID: 0}
     - target: {fileID: 2863688252200306680, guid: 09323247272c0ae40ac6bd4af3bc3a91, type: 3}
       propertyPath: m_AnchoredPosition.y
