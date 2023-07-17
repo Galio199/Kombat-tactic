@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b4e171ea5f42b94fabff52a30b38d0b
+guid: 02420808eb97ddd458c7fdf78544f6d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: defensa_1
+      name: Buff_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 216
-        width: 1188
-        height: 1269
+        x: 144
+        y: 238
+        width: 672
+        height: 789
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a046ff00ae6749c4aae6a62db8853d4b
-      internalID: -2098490639
+      spriteID: eba63e4aced5daf46bdbf2bf7f7c9d22
+      internalID: -779756013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defensa_3
+      name: Buff_1
       rect:
         serializedVersion: 2
-        x: 1498
-        y: 279
-        width: 1230
-        height: 1232
+        x: 1097
+        y: 150
+        width: 678
+        height: 773
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51da0ff7a503f074d97fb079620801ef
-      internalID: 375072524
+      spriteID: 20ac88a3db6b23f408d2d81939447366
+      internalID: -1151113684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defensa_4
+      name: Buff_3
       rect:
         serializedVersion: 2
-        x: 2888
-        y: 273
-        width: 1174
-        height: 1249
+        x: 3008
+        y: 82
+        width: 838
+        height: 869
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527fec919049b76479d10f8d98915dbc
-      internalID: -1955623846
+      spriteID: 5f69aedda904d0c46bb2aecd2e9cd719
+      internalID: 1394368231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defensa_5
+      name: Buff_4
       rect:
         serializedVersion: 2
-        x: 4262
-        y: 305
-        width: 1243
-        height: 1149
+        x: 3962
+        y: 7
+        width: 833
+        height: 1100
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c83840c419b6fb64cb921b4d17194413
-      internalID: 1793528288
+      spriteID: 91d5dd331d1236e47a51d4f87c17e500
+      internalID: -1690944256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defensa_6
+      name: Buff_2
       rect:
         serializedVersion: 2
-        x: 5625
-        y: 309
-        width: 1247
-        height: 1197
+        x: 2024
+        y: 136
+        width: 729
+        height: 977
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,50 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86858e697ace91e42a9318fb0ea0ffde
-      internalID: -2128570003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: defensa_7
-      rect:
-        serializedVersion: 2
-        x: 6985
-        y: 318
-        width: 1255
-        height: 1173
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64df79d29c88b504dacf468b1381aafd
-      internalID: -1362570993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: defensa_9
-      rect:
-        serializedVersion: 2
-        x: 5506
-        y: 1014
-        width: 6
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44baea1d81a89044b82567d1bc0d01d5
-      internalID: 1817917120
+      spriteID: 868a6af525d42c34f801e96ee7a038b7
+      internalID: 1083218119
       vertices: []
       indices: 
       edges: []
@@ -262,23 +220,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      defensa_0: 984297544
-      defensa_1: -2098490639
-      defensa_10: -1337068903
-      defensa_11: 1280794610
-      defensa_12: 1458279182
-      defensa_13: 46600005
-      defensa_14: -668569777
-      defensa_15: -1187249635
-      defensa_16: -1096943649
-      defensa_2: -1726722865
-      defensa_3: 375072524
-      defensa_4: -1955623846
-      defensa_5: 1793528288
-      defensa_6: -2128570003
-      defensa_7: -1362570993
-      defensa_8: 680636599
-      defensa_9: 1817917120
+      Buff_0: -779756013
+      Buff_1: -1151113684
+      Buff_10: -1159192387
+      Buff_11: 749342913
+      Buff_12: -861779094
+      Buff_13: -239140345
+      Buff_14: -809003765
+      Buff_15: -1246797517
+      Buff_16: -1559940837
+      Buff_2: 1083218119
+      Buff_3: 1394368231
+      Buff_4: -1690944256
+      Buff_6: 2114699732
+      Buff_7: 1573526235
+      Buff_9: 305305105
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

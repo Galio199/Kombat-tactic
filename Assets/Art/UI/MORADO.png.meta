@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +103,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MORADO_0
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 222
+        width: 673
+        height: 805
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e8d20891ffbba4295193a2e774fbb1
+      internalID: 2039185591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MORADO_1
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 120
+        width: 677
+        height: 803
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1968f30583563ef41aea9e630b047a0c
+      internalID: -2126187984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MORADO_4
+      rect:
+        serializedVersion: 2
+        x: 2983
+        y: 85
+        width: 863
+        height: 866
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2610bed10c1824e45a10357ecf2a7884
+      internalID: -380131561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MORADO_5
+      rect:
+        serializedVersion: 2
+        x: 3962
+        y: 0
+        width: 860
+        height: 1096
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec6ce581237896489c7ab68c73a1207
+      internalID: 1187034151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MORADO_15
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 129
+        width: 717
+        height: 988
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d49495ede7176c47a1068acd804421a
+      internalID: -2008838568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +219,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MORADO_0: 2039185591
+      MORADO_1: -2126187984
+      MORADO_10: -721105285
+      MORADO_11: 1482897767
+      MORADO_12: 1900173438
+      MORADO_13: -109349231
+      MORADO_14: -792321816
+      MORADO_15: -2008838568
+      MORADO_16: 683877807
+      MORADO_2: -706411755
+      MORADO_3: -1246156909
+      MORADO_4: -380131561
+      MORADO_5: 1187034151
+      MORADO_6: -899956123
+      MORADO_7: 112436883
+      MORADO_8: -977426900
+      MORADO_9: 1957175140
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
