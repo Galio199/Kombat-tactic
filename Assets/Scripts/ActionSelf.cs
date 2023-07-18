@@ -29,14 +29,29 @@ public class ActionSelf : Action
         {
             case ActionType.PROTECT:
                 myCharacter.guardChange = 10;
+
+                //Activar animacion
+                myCharacter.animationsEffects[1].Animation();
+
+                //Mostrar mensaje
                 StartCoroutine(ShowFloatingMessage("+10 Defensa", Color.green, myCharacter.gameObject));
                 break;
             case ActionType.BLOCK:
                 myCharacter.guardChange = 100;
+
+                //Activar animacion 
+                myCharacter.animationsEffects[1].Animation();
+
+                //Mostrar mensaje
                 StartCoroutine(ShowFloatingMessage("+100 Defensa", Color.green, myCharacter.gameObject));
                 break;
             case ActionType.ENHANCE:
                 myCharacter.damageChange = 10;
+
+                //Activar animacion
+                myCharacter.animationsEffects[2].Animation();
+
+                //Mostrar mensaje
                 StartCoroutine(ShowFloatingMessage("+10 Ataque", Color.yellow, myCharacter.gameObject));
                 break;
         }

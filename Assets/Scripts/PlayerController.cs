@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //public string idName;
     public bool selectedCharacter;
 
     public GameObject character;
@@ -37,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     public void SetCard(GameObject card)
     {
-        //Debug.Log("SetCards");
         actionCards.Add(card);
     }
 

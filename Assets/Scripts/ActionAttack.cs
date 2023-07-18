@@ -69,15 +69,14 @@ public class ActionAttack : Action
 
     private IEnumerator AttackCoroutine()
     {
+        myCharacter.gameObject.GetComponent<Animator>().SetTrigger("Attack");
         yield return new WaitForSeconds(durationEffectCell+0.2f);
-        myCharacter.gameObject.GetComponent<Animator>().SetBool("Attack", true);
         if (affects)
         {
             //Llamar a la funcion healthSystem para realizar los cambios a la vida del oponente
             HealthSystem();
         }
         yield return new WaitForSeconds(durationMessage+0.2f);
-        myCharacter.gameObject.GetComponent<Animator>().SetBool("Attack", false);
         //Verificar y llamar la funcion de ataque especial
         if (special)
         {
@@ -115,6 +114,7 @@ public class ActionAttack : Action
         }
 
         float oponentHealth = oponentCharacter.health;
+        oponentCharacter.animationsEffects[0].Animation();
         StartCoroutine(UpdateFillAmount(oponentHealth / 100));
 
     }
@@ -155,12 +155,14 @@ public class ActionAttack : Action
                 if (affects) 
                 { 
                     myCharacter.priorityChange = 1;
+                    myCharacter.animationsEffects[4].Animation();
                     StartCoroutine(ShowFloatingMessage("+velocidad", Color.blue, myCharacter.gameObject));
                 }
                 break;
             case SpecialAtacck.WIZARD:
                 if (affects) 
-                { 
+                {
+                    oponentCharacter.animationsEffects[3].Animation();
                     oponentCharacter.priorityChange = -1;
                     StartCoroutine(ShowFloatingMessage("-velocidad", Color.magenta, oponentCharacter.gameObject));
                 }

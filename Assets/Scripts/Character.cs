@@ -23,8 +23,12 @@ public class Character : MonoBehaviour
 
     public Sprite miniature;
 
+    [Header("Settings")]
     [SerializeField] private Character oponent;
     public Image healthBar;
+
+    [Header("ActionEffects")]
+    public AnimationController[] animationsEffects;
 
     private PositionInCell positionInCell = PositionInCell.LEFT;
 
