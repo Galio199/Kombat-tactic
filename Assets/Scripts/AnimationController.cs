@@ -7,10 +7,17 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private float animationDuration;
     [SerializeField] private string text;
 
+    private Vector3 originalPosition;
     // Método que se llamará cuando termine la animación
     public void Animation()
     {
-        this.gameObject.SetActive(true);
+        originalPosition = transform.localPosition;
+
+        if (transform.parent.GetComponent<SpriteRenderer>().flipX)
+        {
+            transform.localPosition = new Vector3(-originalPosition.x, originalPosition.y, originalPosition.z);
+        }
+        gameObject.SetActive(true);
         StartCoroutine(AnimationCoroutine());
     }
 
@@ -18,6 +25,7 @@ public class AnimationController : MonoBehaviour
     {
         gameObject.GetComponent<Animator>().SetTrigger(text);
         yield return new WaitForSeconds(animationDuration);
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        transform.localPosition = originalPosition;
     }
 }
